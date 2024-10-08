@@ -80,6 +80,13 @@ const app = Vue.createApp({
 });
 app.mount('#experience');
 
+const menuIcone = document.querySelector('#menu-icon');
+const navLinks = document.querySelector('.nav-links');
+
+menuIcone.onclick = ()=>{
+    navLinks.classList.toggle('active')
+}
+
 //Swwper code 
 new Swiper('.swiper', {
     loop: true,

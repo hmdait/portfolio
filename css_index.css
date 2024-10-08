@@ -1,8 +1,7 @@
 :root {
     --color1: #1e90ff;
-    --color2: #7d90c6;
+    --color2: #08f610;
   }
-
 *{
     margin: 0;
     padding: 0;
@@ -12,13 +11,6 @@
     scroll-behavior: smooth;
     list-style: none;
 }
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #005a8d;
-    color: white;
-}
-
 header{
     position: fixed;
     top: 1rem;
@@ -35,7 +27,6 @@ header{
     border-radius: 3rem;
     z-index: 10000;
 }
-
 .logo{
     color: white;
     font-size: 1.3rem;
@@ -169,7 +160,7 @@ section{
     text-align: center;
     font-size: 4rem;
     font-weight: 600;
-    margin-top: 5rem;
+    margin-bottom: 3rem;
 }
 .swiper-wrapper{
     display: flex;
@@ -209,4 +200,197 @@ section{
 .grid-cart li{
     font-size: 1.2rem;
     font-weight: 400;
+}
+
+.projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 2rem;
+}
+.projects-card{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    border: 2px solid black;
+    border-radius: 3rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.projects-card:hover{
+    background-color: black;
+    color: beige;
+    transform: translateY(-10px) scale(1.03);
+}
+.projects-card img{
+    width: 30vw;
+    border-radius: 1rem;
+}
+.projects-card:hover .btn{
+    border: 2px solid white;
+    color: antiquewhite;
+}
+.projects-card:hover .btn:hover{
+    border: 2px solid white;
+    background-color: antiquewhite;
+    color: black;
+}
+.projects-card h3{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.input-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    margin-top: 5rem;
+}
+.input-box input{
+    border-radius: 3rem;
+    border: 2px solid black;
+    padding: 2rem 8rem;
+    font-size: 3rem;
+}
+.input{
+    position: relative;
+}
+.input i{
+    position: absolute;
+    font-size: 4rem;
+    top: 50%;
+    left: 10px;
+    transform: translate(50%,-50%);
+}
+.info-box input::placeholder{
+    font-size: 3rem;
+}
+footer {
+    bottom: 0;
+    left: 0;
+    height: 10rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+footer ul{
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+footer ul li a{
+    font-weight: 600;
+    color: black;
+}
+.copyright{
+    font-size: 300;
+    margin-top: 3rem;
+}
+
+@media(max-width:1280px) {
+    header{
+        padding: 1rem 2rem;
+        gap: 2rem;
+    }
+    .about .about-container{
+        gap: 3rem;
+    }
+    .input-box input{
+        padding: 2rem 5rem;
+        font-size: 2.5rem;
+    }
+    .input-box input::placeholder{
+        font-size: 2.5rem;
+    }
+    .input-box i{
+        font-size: 2.6rem;
+    }
+}
+@media(max-width:768px) {
+    header{
+        gap: 1rem;
+        padding: 1rem 1rem;
+    }
+    header .logo{
+        font-size: 1rem;
+    }
+    header .visit-btn{
+        display: none;
+    }
+    .about-container{
+        flex-direction: column;
+    }
+    .input-box .input{
+        padding: 1rem 2rem;
+        gap: 1.8rem;
+    }
+    .input-box input::placeholder{
+        font-size: 1.5rem;
+    }
+    .input-box i{
+        display: none;
+    }
+    .grid-cart{
+        grid-template-columns: repeat(1.1fr);
+        flex-direction: column;
+    }
+    .experience-info img{
+        width: 0vw;
+    }
+}
+@media(max-width:600px) {
+    header #menu-icon{
+        display: block;
+    }
+    .nav-links{
+        position: absolute;
+        top: 100%;
+        margin-top: 1rem;
+        width: 100%;
+        padding: 1rem;
+        color: aliceblue;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.9);
+        border-radius: 3rem;
+        display: none;
+    }
+    .nav-links li{
+        margin-top: 1.5rem;
+        padding: 1rem;
+    }
+    .nav-links.active{
+        display: block;
+    }
+    header{
+        padding: 1rem 5rem;
+        gap: 6rem;
+    }
+    header .logo{
+        font-size: 1.5rem;
+    }
+    .about-container img{
+        width: 80vw;
+    }
+    .input-box .input{
+        padding: 0.5rem 3rem;
+        width: 80%;
+        font-size: 1.5rem;
+    }
+    .input-box input::placeholder{
+        font-size: 1.5rem;
+    }
+    footer ul{
+        gap: 1rem;
+    }
 }
