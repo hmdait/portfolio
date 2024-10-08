@@ -4,76 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hamid AIT BAJJA - CV</title>
+    <title>Porfolio Hamid AB</title>
     <link rel="stylesheet" href="css_index.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 
 <body>
-    <header>
-        <div class="my_photo">
-            <img src="/images/my_photo.JPG" alt="photo">
-        </div>
-        <div class="header-content">
-            <h1>Hamid AIT BAJJA</h1>
-            <p>Software Engineer</p>
-            <div class="contact-info">
-                <p>Normandie, France | +33 780 79 63 00 | <a href="mailto:hamidaitbajja@gmail.com">hamidaitbajja@gmail.com</a></p>
-                <a href="https://linkedin.com/in/hamid-ait-bajja-b2ba41167" target="_blank">LinkedIn</a> | 
-                <a href="https://github.com/hmdait" target="_blank">GitHub</a>
+
+    <header class="header"><a href="#" class="logo"><span>Hamid AIT BAJJA</span></a>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experiences</a></li>
+        <li><a href="#projects">Projetcs</a></li>
+        <li><a href="#contact">Cantact</a></li>
+    </ul>
+    <i class="fa-solid fa-bars" id="menu-icon"></i>
+    <button class="visit-btn">Visit GitHub</button>
+    </header>
+    
+    <section class="about" id="about">
+        <div class="about-container">
+            <img src="https://avatars.githubusercontent.com/u/41082584?v=4" alt="Image">
+            <div class="info-box">
+                <div class="text">
+                    <h3>Hi, I'm</h3>
+                    <h1>Hamid AIT BAJJA</h1>
+                    <span>Software Engineer</span>
+                </div>
+                <div class="btn-group">
+                    <button class="btn">Download CV</button>
+                    <button class="btn">Contact</button>
+                </div>
+                <div class="social">
+                    <i class="fa-brands fa-github"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
+    
+    <section class="experience swiper" id="experience">
+        <h2 class="section-title">Experiences</h2>
+        <div class="swiper-wrapper">
+            <div class="experience-info swiper-slide">
+                <div class="grid-cart">
+                    <div class="grid-description"><ul>
+                        <li>- {{Experience.expleo.details[0]}}</li>
+                        <li>- {{Experience.expleo.details[1]}}</li>
+                        <li>- {{Experience.expleo.details[2]}}</li>
+                        <li>- {{Experience.expleo.details[3]}}</li>
+                    </ul></div>
+                    <div class="grid">
+                        <span>{{Experience.expleo.title}}</span>
+                        <img src="https://cdn.worldvectorlogo.com/logos/expleo-group-logo.svg" alt="Expleo Group">
+                        <h1>{{Experience.expleo.date}}</h1>
+                    </div>
+                </div>
+            </div>
 
-    <div class="container" id="cvContainer">
-        <!-- Left column -->
-        <div class="left-column">
-            <section class="section" id="experienceSection">
-                <h2>Professional Experience</h2>
-                <!-- Experience will be dynamically generated here -->
-            </section>
+            <div class="experience-info swiper-slide">
+                <div class="grid-cart">
+                    <div class="grid-description"><ul>
+                        <li>- {{Experience.renault.details[0]}}</li>
+                        <li>- {{Experience.renault.details[1]}}</li>
+                        <li>- {{Experience.renault.details[2]}}</li>
+                        <li>- {{Experience.renault.details[3]}}</li>
+                    </ul></div>
+                    <div class="grid">
+                        <span>{{Experience.renault.title}}</span>
+                        <img src="https://lescylindres.com/wp-content/uploads/2023/03/Logo-Renault-thumb-1280x720-1.png" alt="Renault Group">
+                        <h1>{{Experience.renault.date}}</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-info swiper-slide">
+                <div class="grid-cart">
+                    <div class="grid-description">
+                        <ul>
+                            <li>- {{Experience.capgemini.details[0]}}</li>
+                            <li>- {{Experience.capgemini.details[1]}}</li>
+                            <li>- {{Experience.capgemini.details[2]}}</li>
+                            <li>- {{Experience.capgemini.details[3]}}</li>
+                        </ul>
+                    </div>
+                    <div class="grid">
+                        <span>{{Experience.capgemini.title}}</span>
+                        <img src="https://companieslogo.com/img/orig/CAP.PA-9b4110b0.png?t=1720244491" alt="Capgemini Engineering">
+                        <h1>{{Experience.capgemini.date}}</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-info swiper-slide">
+                <div class="grid-cart">
+                    <div class="grid-description">
+                        <ul>
+                            <li>- {{Experience.valeo.details[0]}}</li>
+                            <li>- {{Experience.valeo.details[1]}}</li>
+                            <li>- {{Experience.valeo.details[2]}}</li>
+                            <li>- {{Experience.valeo.details[3]}}</li>
+                        </ul>
+                    </div>
+                    <div class="grid">
+                        <span>{{Experience.valeo.title}}</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Valeo_Logo.svg/2560px-Valeo_Logo.svg.png" alt="Valeo">
+                        <h1>{{Experience.valeo.date}}</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-info swiper-slide">
+                <div class="grid-cart">
+                    <div class="grid-description">
+                        <ul>
+                            <li>- {{Experience.treves.details[0]}}</li>
+                            <li>- {{Experience.treves.details[1]}}</li>
+                            <li>- {{Experience.treves.details[2]}}</li>
+                            <li>- {{Experience.treves.details[3]}}</li>
+                        </ul>
+                    </div>
+                    <div class="grid">
+                        <span>{{Experience.treves.title}}</span>
+                        <img src="https://www.vehiculedufutur.com/uploads/images/News-et-opportunites/2020-NetO/Treves/TREVES_logo2020.png" alt="Treves Group">
+                        <h1>{{Experience.treves.date}}</h1>
+                    </div>
+                </div>
+            </div>
+
         </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </section>
 
-        <!-- Right column -->
-        <div class="right-column">
-            <section class="section" id="skillsSection">
-                <h2>Skills</h2>
-                <ul>
-                    <li>Programming Languages: Python, JavaScript, HTML/CSS, C, CAPL</li>
-                    <li>Frameworks and Libraries: Robot Framework, Angular, VueJs, Flask</li>
-                    <li>Simulation and Engineering Tools: MATLAB Simulink, SCANeR,Vector (CANoe, CANalyzer, etc.)</li>
-                    <li>Development Environments and Project Management Tools: VS code, Pycharm, Git, Jira, CodBeamer</li>
-                    <li>Communication protocols: Ethernet, TCP/IP, UDP, CAN, LIN, SPI, I2C</li>
-                </ul>
-            </section>
 
-            <section class="section" id="educationSection">
-                <h2>Education</h2>
-                <div class="education">
-                    <h3><a href="https://drive.google.com/file/d/1Si6nVhFSheTnXOqtAOj4BJE37DUA8R7X/view?usp=drive_link">Master 2 Industry of the Future and Smart Systems</a></h3>
-                    <p>École Normale Supérieure Paris-Saclay, 2022 - 2023</p>
-                </div>
-                <div class="education">
-                    <h3><a href="https://drive.google.com/file/d/157KUKPplD4xR4gWKqYYK5RbgfF4O-m6E/view?usp=drive_link">Diploma in Mechatronics Engineering</a></h3>
-                    <p>Faculty of Science and Technology Beni-Mellal, 2018 - 2021</p>
-                </div>
-            </section>
 
-            <section class="section" id="projectSection">
-                <h2>Projects</h2>
-                <div class="education">
-                    <h3><a href="https://github.com/hmdait/Assistant_Response">Development of a voice asistance</a></h3>
-                    <p>-Python| -Speech_recognition</p>
-                    <h3><a href="https://github.com/hmdait/Autonomous_Car">Construction of an autonomous car:</a></h3>
-                    <p>-Raspberypi3 + camerarev1.3 | I2C, SPI | -UltrasonHC - SR04</p>
-                </div>
-            </section>
-        </div>
-    </div>
 
+
+
+
+
+
+
+
+
+    <section class="projects" id="projects">
+
+        <h2 class="section-title">Projects</h2>
+        
+        
+    </section>
+    
+    
     <footer>
         <p>© 2024 Hamid AIT BAJJA - All Rights Reserved</p>
     </footer>
 
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script defer src="js_index.js"></script>
 </body>
 </html>
