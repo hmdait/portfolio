@@ -27,6 +27,9 @@ header{
     border-radius: 3rem;
     z-index: 10000;
 }
+a{
+    color: #333;
+}
 .logo{
     color: white;
     font-size: 1.3rem;
@@ -81,11 +84,17 @@ li a:hover::before{
     display: none;
 }
 
-section{
+/* General section styling */
+section {
     min-height: 100vh;
     padding: 8rem 12%;
     width: 100%;
     position: relative;
+    background-color: #f5f5f5; /* Optional: background color */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .about{
     display: flex;
@@ -115,7 +124,7 @@ section{
     opacity: 0.8;
 }
 .info-box h1{
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 600;
 }
 .info-box span{
@@ -126,7 +135,7 @@ section{
 }
 .btn-group{
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
     justify-content: center;
 }
 .btn{
@@ -142,11 +151,7 @@ section{
     background: black;
     color: aliceblue;
 }
-.social{
-    display: flex;
-    gap: 2rem;
-    
-}
+
 .social i{
     font-size: 2.5rem;
     cursor: pointer;
@@ -156,52 +161,114 @@ section{
     transform: scale(1.1);
 }
 
-.section-title{
+.info-box .text p {
+    text-align: justify; /* Justify the paragraph */
+    width: 100%; /* Ensure the paragraph fills the container */
+    line-height: 1.6; /* Improves readability */
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    color: #333; /* Adjust font color for readability */
+}
+
+/* Experience Section ------------------------------------------------------------------ */
+/* Section title styling */
+.section-title {
     text-align: center;
     font-size: 4rem;
     font-weight: 600;
     margin-bottom: 3rem;
 }
-.swiper-wrapper{
+
+/* Swiper container to make the slider take full width */
+.swiper-wrapper {
     display: flex;
     padding-left: 4rem;
+    height: 100%; /* Take the full height of the section */
+    align-items: center;
 }
-.experience-info{
+
+/* Styling each experience slide */
+.experience-info {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5rem;
+    width: 100%; /* Ensure it takes full width */
 }
-.experience img{
-    width: 25vw;
+
+/* Image styling inside each experience */
+.experience img {
+    width: 20vw; /* Adjust as per the screen size */
     border-radius: 5rem;
+    object-fit: contain; /* Keeps the aspect ratio of images */
 }
-.grid-cart{
+.grid{
     display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+/* Cart styling for the description and details */
+.grid-cart {
+    display: flex;
+    flex-direction: row;
     gap: 2rem;
     padding-top: 3rem;
 }
 
-.grid-description{
-    width: 80vw;
+/* Styling for the description part */
+.grid-description {
+    width: 60%; /* Adjust to fit the layout */
 }
-.grid span{
-    background: linear-gradient(to right, var(--color1),var(--color2) );
+.grid-description li{
+    text-align: justify; /* Justify the paragraph */
+}
+
+/* Style for each grid span (title of the experience) */
+.grid span {
+    background: linear-gradient(to right, var(--color1), var(--color2));
     background-clip: text;
     color: transparent;
     font-size: 2rem;
-    
 }
-.grid h1{
-    font-size: 1rem;
+
+/* Date styling */
+.grid h1 {
+    font-size: 1.5rem;
     font-weight: 400;
     opacity: 0.6;
 }
-.grid-cart li{
+
+/* List item styling */
+.grid-cart li {
     font-size: 1.2rem;
     font-weight: 400;
+    line-height: 1.5;
 }
 
+/* Swiper button styling */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: black;
+    transform: scale(1.1rem);
+}
+
+/* Pagination styling */
+.swiper-pagination-bullet {
+    background-color: var(--color1);
+    width: 12px;
+    height: 12px;
+    margin: 10px;
+}
+
+/* Ensure that the slides and pagination align centrally */
+.swiper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Project Section  -------------------------------------------------------------------- */
 .projects-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
@@ -210,7 +277,7 @@ section{
 .projects-card{
     display: flex;
     flex-direction: column;
-    padding: 3rem 2rem;
+    padding: 2rem 2rem;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -226,7 +293,7 @@ section{
     transform: translateY(-10px) scale(1.03);
 }
 .projects-card img{
-    width: 30vw;
+    width: 25vw;
     border-radius: 1rem;
 }
 .projects-card:hover .btn{
@@ -242,35 +309,57 @@ section{
     font-size: 2rem;
     font-weight: 600;
 }
+/* Contact Section ============================================================================= */
+.contact {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    width: 100%;
+}
 
-.input-box{
+.input-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     gap: 2rem;
-    margin-top: 5rem;
+    width: 100%;
 }
-.input-box input{
-    border-radius: 3rem;
-    border: 2px solid black;
-    padding: 2rem 8rem;
-    font-size: 3rem;
-}
-.input{
+
+.input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem; /* Space between the icon and the textarea */
     position: relative;
 }
-.input i{
-    position: absolute;
+
+.input i {
     font-size: 4rem;
-    top: 50%;
-    left: 10px;
-    transform: translate(50%,-50%);
+    color: white; /* Adjust color to match your theme */
 }
-.info-box input::placeholder{
-    font-size: 3rem;
+
+.input textarea {
+    border-radius: 2rem;
+    border: 2px solid black;
+    padding: 1.5rem;
+    font-size: 1rem;
+    width: 80vw;
+    height: 50vh;
+    resize: vertical;
 }
+
+.input textarea::placeholder {
+    font-size: 1.2rem;
+    color: #999;
+}
+
+/* Footer =====================================================================================*/
 footer {
     bottom: 0;
     left: 0;
@@ -296,62 +385,80 @@ footer ul li a{
     margin-top: 3rem;
 }
 
-@media(max-width:1280px) {
-    header{
+@media(max-width: 1280px) {
+    header {
         padding: 1rem 2rem;
         gap: 2rem;
     }
-    .about .about-container{
+    .about .about-container {
         gap: 3rem;
     }
-    .input-box input{
+    .input-box input {
         padding: 2rem 5rem;
-        font-size: 2.5rem;
+        font-size: clamp(1.5rem, 2.5vw, 2.5rem); /* Responsive font-size */
     }
-    .input-box input::placeholder{
-        font-size: 2.5rem;
+    .input-box input::placeholder {
+        font-size: clamp(1.5rem, 2.5vw, 2.5rem); /* Responsive placeholder font-size */
     }
-    .input-box i{
+    .input-box i {
         font-size: 2.6rem;
     }
 }
-@media(max-width:768px) {
-    header{
+
+@media(max-width: 768px) {
+    header {
         gap: 1rem;
         padding: 1rem 1rem;
     }
-    header .logo{
+    header .logo {
         font-size: 1rem;
     }
-    header .visit-btn{
+    header .visit-btn {
         display: none;
     }
-    .about-container{
+    .about-container {
         flex-direction: column;
     }
-    .input-box .input{
+    .input-box .input {
         padding: 1rem 2rem;
         gap: 1.8rem;
     }
-    .input-box input::placeholder{
+    .input-box input::placeholder {
         font-size: 1.5rem;
     }
-    .input-box i{
+    .input-box i {
         display: none;
     }
-    .grid-cart{
-        grid-template-columns: repeat(1.1fr);
+    .btn-group{
+        gap: 0.8rem;
+    }
+    
+    /* Experience section adjustment */
+    .experience img {
+        width: 50vw;
+    }
+    .grid-description {
+        width: 80%; /* Prevent overflow */
+    }
+    .grid-cart {
         flex-direction: column;
+        padding-top: 1rem;
+        gap: 1rem; /* Adjust gap to prevent overlapping */
     }
-    .experience-info img{
-        width: 0vw;
+    .grid h1 {
+        font-size: 1.2rem;
     }
+    .grid-cart li {
+        font-size: clamp(1rem, 2vw, 1.2rem); /* Responsive list item font-size */
+    }
+    
 }
-@media(max-width:600px) {
-    header #menu-icon{
+
+@media(max-width: 600px) {
+    header #menu-icon {
         display: block;
     }
-    .nav-links{
+    .nav-links {
         position: absolute;
         top: 100%;
         margin-top: 1rem;
@@ -365,32 +472,35 @@ footer ul li a{
         border-radius: 3rem;
         display: none;
     }
-    .nav-links li{
+    .nav-links li {
         margin-top: 1.5rem;
         padding: 1rem;
     }
-    .nav-links.active{
+    .nav-links.active {
         display: block;
     }
-    header{
+    header {
         padding: 1rem 5rem;
         gap: 6rem;
     }
-    header .logo{
+    header .logo {
         font-size: 1.5rem;
     }
-    .about-container img{
+    .about-container img {
         width: 80vw;
     }
-    .input-box .input{
+    .btn-group{
+        gap: 0.1rem;
+    }
+    .input-box .input {
         padding: 0.5rem 3rem;
         width: 80%;
+        font-size: clamp(1rem, 2vw, 1.5rem); /* Responsive input font-size */
+    }
+    .input-box input::placeholder {
         font-size: 1.5rem;
     }
-    .input-box input::placeholder{
-        font-size: 1.5rem;
-    }
-    footer ul{
+    footer ul {
         gap: 1rem;
     }
 }

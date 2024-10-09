@@ -1,4 +1,4 @@
-const app = Vue.createApp({
+const experienceSection = Vue.createApp({
     data(){
         return {
             Experience: {
@@ -63,22 +63,31 @@ const app = Vue.createApp({
         }
     },
     methods:{
-        increment: function(fact){
-            this.counter+=fact
-            if (this.counter >=0){
-                this.signe = "positif"
-            }
-        },
-        decrement: function(fact){
-            this.counter -= fact
-            if (this.counter < 0){
-                this.signe = "negatif"
-            }
-        }
     }
 
 });
-app.mount('#experience');
+const aboutSection = Vue.createApp({
+    data(){
+        return {
+            aboutMe:'Software Validation Engineer with solid expertise in test automation, embedded systems validation, and developing solutions for ADAS systems. Passionate about technological innovation, I successfully tackle complex challenges related to intelligent systems. My dedication, energy, along with my communication and project management skills, enable me to make valuable contributions.',
+            
+        }
+    }
+})
+
+const projectSection = Vue.createApp({
+    data(){
+        return { 
+        }
+    },
+    methods:{
+
+    }
+})
+
+projectSection.mount('#project');
+experienceSection.mount('#experience');
+aboutSection.mount('#about')
 
 const menuIcone = document.querySelector('#menu-icon');
 const navLinks = document.querySelector('.nav-links');
@@ -105,3 +114,32 @@ new Swiper('.swiper', {
       prevEl: '.swiper-button-prev',
     }
   });
+
+  
+function openVideo1() {
+    // Path to Respons assiste video
+    const videoPath = 'https://drive.google.com/file/d/1qJQlDMIGqlszMTsI5pQZZzSY0RS2r1aC/view?usp=sharing'; // Replace this with your video path
+    window.open(videoPath, '_blank'); // Opens the video in a new tab
+}
+
+document.querySelector('.btn').addEventListener('click', sendEmail);
+function sendEmail() {
+    const email = "hh@gmail.com"; // Your email address
+    const subject = "Contact Form Submission"; // Subject line
+    const message = document.getElementById('userMessage').value; // Get the textarea content
+
+    // Check if the message is empty
+    if (!message) {
+        alert("Please enter a message."); // Alert if the textarea is empty
+        return;
+    }
+
+    const body = `Hello,\n\n${message}`; // Include the user's message in the body
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Open the user's email client
+    window.location.href = mailtoLink;
+}
+
+
+
