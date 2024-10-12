@@ -170,19 +170,22 @@ section {
     color: #333; /* Adjust font color for readability */
 }
 
-/* Experience Section ------------------------------------------------------------------ */
 /* Section title styling */
 .section-title {
     text-align: center;
     font-size: 4rem;
     font-weight: 600;
-    margin-bottom: 3rem;
+}
+
+/* Experience Section --------------------------------------------------------------------------------------- */
+.experience h2{
+    padding-top: 5rem;
 }
 
 /* Swiper container to make the slider take full width */
 .swiper-wrapper {
     display: flex;
-    padding-left: 4rem;
+    padding: 0rem 4rem;
     height: 100%; /* Take the full height of the section */
     align-items: center;
 }
@@ -194,6 +197,7 @@ section {
     justify-content: center;
     gap: 5rem;
     width: 100%; /* Ensure it takes full width */
+    padding-right: 2rem;
 }
 
 /* Image styling inside each experience */
@@ -202,6 +206,7 @@ section {
     border-radius: 5rem;
     object-fit: contain; /* Keeps the aspect ratio of images */
 }
+
 .grid{
     display: flex;
     align-items: center;
@@ -229,6 +234,7 @@ section {
     background-clip: text;
     color: transparent;
     font-size: 2rem;
+    text-align: justify;
 }
 
 /* Date styling */
@@ -236,6 +242,9 @@ section {
     font-size: 1.5rem;
     font-weight: 400;
     opacity: 0.6;
+}
+.grid img{
+    height: 10rem;
 }
 
 /* List item styling */
@@ -269,6 +278,11 @@ section {
 }
 
 /* Project Section  -------------------------------------------------------------------- */
+.projects h2{
+    margin-top: 0px;
+    padding-bottom: 1rem;
+    
+}
 .projects-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));

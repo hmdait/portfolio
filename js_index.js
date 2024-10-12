@@ -99,15 +99,12 @@ menuIcone.onclick = ()=>{
 //Swwper code 
 new Swiper('.swiper', {
     loop: true,
-  
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
       dynamicBullets: true,
-
     },
-  
     // Navigation arrows
     navigation: {
       nextEl: '.swiper-button-next',
@@ -118,7 +115,12 @@ new Swiper('.swiper', {
   
 function openVideo1() {
     // Path to Respons assiste video
-    const videoPath = 'https://drive.google.com/file/d/1qJQlDMIGqlszMTsI5pQZZzSY0RS2r1aC/view?usp=sharing'; // Replace this with your video path
+    const videoPath = 'https://drive.google.com/file/d/1qJQlDMIGqlszMTsI5pQZZzSY0RS2r1aC/view?usp=sharing'; 
+    window.open(videoPath, '_blank'); // Opens the video in a new tab
+}
+function openVideo2() {
+    // Path to Respons assiste video
+    const videoPath = 'https://drive.google.com/file/d/1exKXQZmpVaDemvtBU8Hr1UKZM6jqm8GO/view?usp=drive_link'; 
     window.open(videoPath, '_blank'); // Opens the video in a new tab
 }
 
