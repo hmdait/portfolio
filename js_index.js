@@ -85,6 +85,23 @@ const projectSection = Vue.createApp({
     }
 })
 
+const skillsSection = Vue.createApp({
+    data(){
+        return { 
+            languges: {
+                python:'80%',
+                JavaScript: '60%',
+                C: '80%',
+                CAPL: '80%'
+            }
+        }
+    },
+    methods:{
+
+    }
+})
+
+skillsSection.mount('#skills');
 projectSection.mount('#project');
 experienceSection.mount('#experience');
 aboutSection.mount('#about')

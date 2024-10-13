@@ -87,7 +87,7 @@ li a:hover::before{
 /* General section styling */
 section {
     min-height: 100vh;
-    padding: 8rem 12%;
+    padding: 0rem 12%;
     width: 100%;
     position: relative;
     background-color: #f5f5f5; /* Optional: background color */
@@ -175,12 +175,10 @@ section {
     text-align: center;
     font-size: 4rem;
     font-weight: 600;
+    padding-top: 5rem;
 }
 
 /* Experience Section --------------------------------------------------------------------------------------- */
-.experience h2{
-    padding-top: 5rem;
-}
 
 /* Swiper container to make the slider take full width */
 .swiper-wrapper {
@@ -278,11 +276,6 @@ section {
 }
 
 /* Project Section  -------------------------------------------------------------------- */
-.projects h2{
-    margin-top: 0px;
-    padding-bottom: 1rem;
-    
-}
 .projects-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
@@ -323,9 +316,52 @@ section {
     font-size: 2rem;
     font-weight: 600;
 }
+
+/* Skills Section  -------------------------------------------------------------------- */
+.skill-category{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.skill-category h1{
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight:700;
+}
+.skill-box h2{
+    font-size: 1rem;
+    font-weight: 300;
+}
+.skill-row{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+}
+.skill-row .skill-box .skill-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.skill-row .skill-box .skill-outter-line{
+    width: 100%;
+    height: 1rem;
+    background-color: lightgray;
+    border-radius: 15px;
+
+}
+.skill-row .skill-box .skill-outter-line .skill-innet-line{ 
+    height: 1rem;
+    border-radius: 20px;
+    background: linear-gradient(to right, var(--color1),var(--color2) );
+
+}
+
+
 /* Contact Section ============================================================================= */
 .contact {
-    padding: 4rem 2rem;
+    padding: 0rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -465,6 +501,12 @@ footer ul li a{
     .grid-cart li {
         font-size: clamp(1rem, 2vw, 1.2rem); /* Responsive list item font-size */
     }
+
+    .skill-category h1{
+        margin-top: 2rem;
+        font-size: 1rem;
+        font-weight: 400;
+    }
     
 }
 
@@ -472,6 +514,7 @@ footer ul li a{
     header #menu-icon {
         display: block;
     }
+   
     .nav-links {
         position: absolute;
         top: 100%;
@@ -516,5 +559,11 @@ footer ul li a{
     }
     footer ul {
         gap: 1rem;
+    }
+    .skill-row{
+        margin-top: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 0.1rem;
     }
 }
