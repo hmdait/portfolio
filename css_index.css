@@ -195,7 +195,6 @@ section {
     justify-content: center;
     gap: 5rem;
     width: 100%; /* Ensure it takes full width */
-    padding-right: 2rem;
 }
 
 /* Image styling inside each experience */
@@ -232,7 +231,7 @@ section {
     background-clip: text;
     color: transparent;
     font-size: 2rem;
-    text-align: justify;
+    text-align: left;
 }
 
 /* Date styling */
@@ -240,6 +239,7 @@ section {
     font-size: 1.5rem;
     font-weight: 400;
     opacity: 0.6;
+    text-align: left;
 }
 .grid img{
     height: 10rem;
@@ -471,6 +471,7 @@ footer ul li a{
     }
     .about-container {
         flex-direction: column;
+        padding-top: 8rem;
     }
     .input-box .input {
         padding: 1rem 2rem;
@@ -487,19 +488,22 @@ footer ul li a{
     }
     
     /* Experience section adjustment */
-    .experience img {
-        width: 50vw;
+    .about-container img {
+        width: 60vw;
     }
     .grid-description {
         width: 80%; /* Prevent overflow */
     }
     .grid-cart {
         flex-direction: column;
-        padding-top: 1rem;
+        padding: 2rem;
+        margin: 0;
         gap: 1rem; /* Adjust gap to prevent overlapping */
     }
+    
     .grid h1 {
         font-size: 1.2rem;
+        text-align: left;
     }
     .grid-cart li {
         font-size: clamp(1rem, 2vw, 1.2rem); /* Responsive list item font-size */
@@ -510,7 +514,10 @@ footer ul li a{
         font-size: 1rem;
         font-weight: 400;
     }
-    
+    .input{
+        display: grid;
+        flex-direction: row;
+    }
 }
 
 @media(max-width: 600px) {
@@ -546,8 +553,9 @@ footer ul li a{
     header .logo {
         font-size: 1.5rem;
     }
+
     .about-container img {
-        width: 80vw;
+        width: 60vw;
     }
     .btn-group{
         gap: 0.1rem;
