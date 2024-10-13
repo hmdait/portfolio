@@ -388,7 +388,10 @@ section {
     gap: 1rem; /* Space between the icon and the textarea */
     position: relative;
 }
-
+.input .map iframe{
+    border-radius: 2rem;
+    border: 2px solid black;
+}
 .input i {
     font-size: 4rem;
     color: white; /* Adjust color to match your theme */
