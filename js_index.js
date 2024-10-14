@@ -66,6 +66,8 @@ const experienceSection = Vue.createApp({
     }
 
 });
+experienceSection.mount('#experience');
+
 const aboutSection = Vue.createApp({
     data(){
         return {
@@ -73,27 +75,49 @@ const aboutSection = Vue.createApp({
             
         }
     }
-})
+});
+aboutSection.mount('#about')
 
 const projectSection = Vue.createApp({
     data(){
         return { 
+            project_1:{
+                name: 'AutoCar',
+                description: "an autonomous car based on a Raspberry PI for processing data received by a camera and an ultrasonic sensors",
+                live_demo: '',
+                github_link: 'https://github.com/hmdait/Autonomous_Car.git'
+            },
+            project_2:{
+                name: 'Mery',
+                description: "Voice response Assistance can hear us and translate audio messages into text as well as read text",
+                live_demo: '',
+                github_link: 'https://github.com/hmdait/Assistant_Response'
+            },
+            project_3: {
+                name: 'Alicona',
+                description: "Measure the surface roughness of a part produced by additive manufacturing (SLS), in accordance with the ISO 25178.",
+                live_demo: 'https://docs.google.com/presentation/d/1PhgUvstQkO5BZnhnWVLVb8qSPsIRLMTb/edit?usp=drive_link&ouid=105801039597573388513&rtpof=true&sd=true',
+                github_link: 'https://github.com/hmdait/confocal_measurement'
+            }
         }
     },
     methods:{
 
     }
-})
+});
+projectSection.mount('#projects');
+
 
 const skillsSection = Vue.createApp({
     data(){
         return { 
-            languges: {
-                python:'80%',
-                JavaScript: '60%',
-                C: '80%',
-                CAPL: '80%'
-            }
+            languages: {
+                python:{name:'Python', rate:'80%'},
+                JavaScript: {name:'JavaScript', rate: '60%'},
+                C: {name: 'C', rate:'80%'},
+                CAPL: {name:'CAPL',rate:'80%'}
+            },
+
         }
     },
     methods:{
@@ -102,9 +126,6 @@ const skillsSection = Vue.createApp({
 })
 
 skillsSection.mount('#skills');
-projectSection.mount('#project');
-experienceSection.mount('#experience');
-aboutSection.mount('#about')
 
 const menuIcone = document.querySelector('#menu-icon');
 const navLinks = document.querySelector('.nav-links');
@@ -140,10 +161,15 @@ function openVideo2() {
     const videoPath = 'https://drive.google.com/file/d/1exKXQZmpVaDemvtBU8Hr1UKZM6jqm8GO/view?usp=drive_link'; 
     window.open(videoPath, '_blank'); // Opens the video in a new tab
 }
+function openVideo3() {
+    // Path to Alicona presentation
+    const videoPath = 'https://docs.google.com/presentation/d/1PhgUvstQkO5BZnhnWVLVb8qSPsIRLMTb/edit?usp=drive_link&ouid=105801039597573388513&rtpof=true&sd=true'; 
+    window.open(videoPath, '_blank'); // Opens the video in a new tab
+}
 
-document.querySelector('.btn').addEventListener('click', sendEmail);
+document.querySelector('#submit-btn').addEventListener('click', sendEmail);
 function sendEmail() {
-    const email = "hh@gmail.com"; // Your email address
+    const email = "hmdaitbjj@gmail.com";
     const subject = "Contact Form Submission"; // Subject line
     const message = document.getElementById('userMessage').value; // Get the textarea content
 
@@ -153,11 +179,13 @@ function sendEmail() {
         return;
     }
 
-    const body = `Hello,\n\n${message}`; // Include the user's message in the body
+    const body = `${message}`; // Include the user's message in the body
     const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     // Open the user's email client
     window.location.href = mailtoLink;
+    // Clear the textarea content
+    document.getElementById('userMessage').value = '';
 }
 
 

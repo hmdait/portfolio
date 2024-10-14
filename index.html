@@ -148,27 +148,39 @@
     <section class="projects" id="projects">
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
+             <!--Project 1-->
             <div class="projects-card">
                 <img src="images/autonomous_car.png" alt="Car">
-                <h3>autonomous car prototype</h3>
-                <p>an autonomous car based on a Raspberry PI for processing data received by a camera and an ultrasonic
-                </p>
+                <h3>{{project_1.name}}</h3>
+                <p>{{project_1.description}}</p>
                 <div class="btn-group">
                     <div class="btn" onclick="openVideo2()">Live Demo</div>
-                    <a href="https://github.com/hmdait/Autonomous_Car.git"><div class="btn">Github Repos</div></a>
+                    <a :href="project_1.github_link"><div class="btn">Github Repos</div></a>
+                </div>
+            </div>
+            <!--Project 2-->
+            <div class="projects-card">
+                <img src="images/speech_response.png" alt="Car">
+                <h3>{{project_2.name}}</h3>
+                <p>{{project_2.description}}</p>
+                <div class="btn-group">
+                    <div class="btn" onclick="openVideo1()">Live Demo</div>
+                    <a :href="project_2.github_link"><div class="btn">Github Repos</div></a>
                 </div>
             </div>
 
-            <div class="projects-card">
-                <img src="images/speech_response.png" alt="Car">
-                <h3>Voice response Assistance</h3>
-                <p>an application that can hear us and translate audio messages into text as well as read text
-                </p>
+             <!--Project 3-->
+             <div class="projects-card">
+                <img src="images/alicona.png" alt="Car">
+                <h3>{{project_3.name}}</h3>
+                <p>{{project_3.description}}</p>
                 <div class="btn-group">
-                    <div class="btn" onclick="openVideo1()">Live Demo</div>
-                    <a href="https://github.com/hmdait/Assistant_Response"><div class="btn">Github Repos</div></a>
+                    <div class="btn" onclick="openVideo3()">Live Demo</div>
+                    <a :href="project_3.github_link"><div class="btn">Github Repos</div></a>
                 </div>
             </div>
+
+
         </div>
         
     </section>
@@ -184,44 +196,44 @@
                 <!-- Skill 1-->
                 <div class="skill-box">
                     <div class="skill-info">
-                        <h2>Python</h2>
-                        <h2>80%</h2>
+                        <h2>{{languages.python.name}}</h2>
+                        <h2>{{languages.python.rate}}</h2>
                     </div>
                     <div class="skill-outter-line">
-                        <div class="skill-innet-line" style="width: 80%;"></div>
+                        <div class="skill-innet-line" :style="{ width: languages.python.rate }"></div>
                     </div>
                 </div>
 
                 <!-- Skill 2-->
                 <div class="skill-box">
                     <div class="skill-info">
-                        <h2>JavaScript</h2>
-                        <h2>60%</h2>
+                        <h2>{{languages.JavaScript.name}}</h2>
+                        <h2>{{languages.JavaScript.rate}}</h2>
                     </div>
                     <div class="skill-outter-line">
-                        <div class="skill-innet-line" style="width: 60%;"></div>
+                        <div class="skill-innet-line" :style="{ width: languages.JavaScript.rate }"></div>
                     </div>
                 </div>
 
                 <!-- Skill 3-->
                 <div class="skill-box">
                     <div class="skill-info">
-                        <h2>C</h2>
-                        <h2>80%</h2>
+                        <h2>{{languages.C.name}}</h2>
+                        <h2>{{languages.C.rate}}</h2>
                     </div>
                     <div class="skill-outter-line">
-                        <div class="skill-innet-line" style="width: 80%;"></div>
+                        <div class="skill-innet-line" :style="{ width: languages.C.rate }"></div>
                     </div>
                 </div>
 
                 <!-- Skill 4-->
                 <div class="skill-box">
                     <div class="skill-info">
-                        <h2>CAPL</h2>
-                        <h2>80%</h2>
+                        <h2>{{languages.CAPL.name}}</h2>
+                        <h2>{{languages.CAPL.rate}}</h2>
                     </div>
                     <div class="skill-outter-line">
-                    <div class="skill-innet-line" style="width: 80%;"></div>
+                    <div class="skill-innet-line" :style="{ width: languages.CAPL.rate }"></div>
                     </div>
                 </div>
 
@@ -268,6 +280,34 @@
 
             </div>
         </div>
+
+        <!--Protocoles -->
+        <div class="skill-category">
+            <h1>communication protocols</h1>
+            <div class="skill-row">
+                <!-- Skill 1-->
+                <div class="skill-box">
+                    <div class="skill-info">
+                        <h2>Ethernet</h2>
+                        <h2>60%</h2>
+                    </div>
+                    <div class="skill-outter-line">
+                        <div class="skill-innet-line" style="width: 60%;"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 2-->
+                <div class="skill-box">
+                    <div class="skill-info">
+                        <h2>CAN</h2>
+                        <h2>80%</h2>
+                    </div>
+                    <div class="skill-outter-line">
+                        <div class="skill-innet-line" style="width: 80%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
      </section>
 
@@ -280,9 +320,9 @@
                 <div class="map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41746.02961173095!2d1.2992780430928423!3d49.160200421636084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e13235919505e3%3A0xd5d7c09c960ab5fa!2s27600%20Gaillon!5e0!3m2!1sfr!2sfr!4v1728838294368!5m2!1sfr!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <textarea placeholder="Sorry, this method is not yet implemented."></textarea>
+                <textarea id="userMessage" placeholder="I look forward to hearing from you and discussing exciting new opportunities!."></textarea>
             </div>
-            <div class="btn">Submit</div>
+            <div id="submit-btn" class="btn">Submit</div>
 
         </div>
     </section>
@@ -292,6 +332,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experiences</a></li>
             <li><a href="#projects">Projetcs</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Cantact</a></li>
         </ul>
         <p class="copyright">© 2024 Hamid AIT BAJJA - All Rights Reserved</p>
