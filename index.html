@@ -26,7 +26,7 @@
     <a href="https://github.com/hmdait"><button class="visit-btn">Visit GitHub</button></a>
     </header>
 
-    <!-- ================================================Experiences Section ==================================================-->
+    <!-- ================================================About Section ==================================================-->
     <section class="about" id="about">
         <div class="about-container">
             <img src="https://avatars.githubusercontent.com/u/41082584?v=4" alt="Image">
@@ -41,7 +41,7 @@
                     <a href="https://drive.google.com/file/d/1I6uqsaW06U4WkDrHrV3v3diU-kbEAdeZ/view?usp=drive_link" download="Hamid_AIT_BAJJA_CV.pdf">
                         <button class="btn">Download CV</button>
                     </a>
-                    <button class="btn">Contact</button>
+                    <a href="#contact"><button class="btn">Contact</button></a>
                     <a href="https://github.com/hmdait"><i class="fa-brands fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/hamid-ait-bajja-b2ba41167/"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
@@ -49,7 +49,7 @@
             </div>
         </div>
     </section>
-    
+    <!-- ================================================Experience Section ==================================================-->
     <section class="experience swiper" id="experience">
         <h2 class="section-title">Experiences</h2>
         <div class="swiper-wrapper">
@@ -190,7 +190,7 @@
         <h1 class="sub-heading section-title">Skills</h1>
         <div class="divider"></div>
         <div class="skill-category">
-            <h1>Programming Languages</h1>
+            <h1>Programming Languages:</h1>
             <div class="skill-row">
 
                 <!-- Skill 1-->
@@ -283,7 +283,7 @@
 
         <!--Protocoles -->
         <div class="skill-category">
-            <h1>communication protocols</h1>
+            <h1>communication protocols:</h1>
             <div class="skill-row">
                 <!-- Skill 1-->
                 <div class="skill-box">
@@ -306,6 +306,45 @@
                         <div class="skill-innet-line" style="width: 80%;"></div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="skill-category">
+            <h1>Simulation Tools:</h1>
+            <div class="skill-row">
+
+                <!-- Skill 1-->
+                <div class="skill-box">
+                    <div class="skill-info">
+                        <h2>{{simulation.Matlab.name}}</h2>
+                        <h2>{{simulation.Matlab.rate}}</h2>
+                    </div>
+                    <div class="skill-outter-line">
+                        <div class="skill-innet-line" :style="{ width: simulation.Matlab.rate }"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 2-->
+                <div class="skill-box">
+                    <div class="skill-info">
+                        <h2>{{simulation.Vector.name}}</h2>
+                        <h2>{{simulation.Vector.rate}}</h2>
+                    </div>
+                    <div class="skill-outter-line">
+                        <div class="skill-innet-line" :style="{ width: simulation.Vector.rate }"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 3-->
+                <div class="skill-box">
+                    <div class="skill-info">
+                        <h2>{{simulation.Scaner.name}}</h2>
+                        <h2>{{simulation.Scaner.rate}}</h2>
+                    </div>
+                    <div class="skill-outter-line">
+                        <div class="skill-innet-line" :style="{width: simulation.Scaner.rate }"></div>
+                    </div>
+                </div>
+
             </div>
         </div>
         

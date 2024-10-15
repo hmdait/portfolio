@@ -117,6 +117,11 @@ const skillsSection = Vue.createApp({
                 C: {name: 'C', rate:'80%'},
                 CAPL: {name:'CAPL',rate:'80%'}
             },
+            simulation:{
+                Matlab: {name:'Matlab Simulink', rate:'80%'},
+                Vector: {name:'Vetor [CANoe, CANalyzer, CANape]', rate: '80%'},
+                Scaner: {name:'SCANeR', rate:'40%'}
+            }
 
         }
     },
