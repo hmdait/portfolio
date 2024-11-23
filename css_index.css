@@ -115,6 +115,10 @@ section {
     justify-content: center;
     padding-top: 2rem;
 
+    a{
+        color: black;   
+    }
+
     .about-container{
         display: flex;
         align-items: center;   
@@ -309,6 +313,9 @@ section {
 
 /* -------------------------------------------------- Project Section ------------------------------------------------------ */
 .projects{
+    a{
+        color: #333;
+    }
     .projects-grid{
         display: grid;
         grid-template-columns: repeat(3,1fr);

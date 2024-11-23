@@ -8,7 +8,7 @@ const experienceSection = Vue.createApp({
                     details: [
                         "Wrote test automation scripts for ADAS systems {UPA/FKP, DMS, and SVS}, reducing manual test time by 40% and increasing test coverage by configuring the test environment on a HIL bench to ensure accurate and efficient testing.",
                         "Conducted software tests directly on vehicles, ensuring the functionality and compliance of ADAS software flashed into the ECUs, using Renault's internal tools such as DDT2000, ADaPT, Jira, CodeBeamer, as well as Vector tools (CANoe, CANape, etc.)",
-                        "Developed CAPL scripts for a Gateway in a SWEET500 architecture development project, based on an existing architecture. This project involved monitoring all frames of the CAN buses from the old architecture to ensure a smooth and secure transition.",
+                        "Developed CAPL scripts for a Gateway in a SDV architecture development project, based on an existing architecture. This project involved monitoring all frames of the CAN buses from the old architecture to ensure a smooth and secure transition.",
                         "Wrote and presented detailed weekly reports to clients and internal teams, providing full transparency on project progress."
                     ]
                 },
@@ -193,5 +193,11 @@ function sendEmail() {
     document.getElementById('userMessage').value = '';
 }
 
-
-
+/* ----------------------------------Typed Js----------------------------------------*/
+const typed = new Typed('.multiple-text',{
+    strings: ['Software Engineer', 'Mechatronics Engineer'],
+    typeSpeed: 70,
+    backSpeed: 70,
+    backDelay: 1500,
+    loop: true,
+})
