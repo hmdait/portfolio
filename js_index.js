@@ -78,13 +78,12 @@ const slider = document.getElementById('experience-slider');
     const card = document.createElement('div');
     card.className = 'experience-card';
     card.innerHTML = `
-      <div class="swiper-slide">
       <img src="${exp.logo}" alt="${exp.company} logo">
       <h3>${exp.company}</h3>
       <p><strong>${exp.role}</strong></p>
       <p>${exp.startDate} - ${exp.endDate}</p>
       <p>${exp.summary}</p>
-      </div>
+      
     `;
     card.addEventListener('click', () => showPopup(exp.company, exp.details));
     slider.appendChild(card);
