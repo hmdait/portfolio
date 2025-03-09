@@ -88,7 +88,7 @@ header {
 /* ----------------------------------------------- General section styling ----------------------------------------------------- */
 section {
   min-height: 100vh;
-  padding: 0rem 10%;
+  padding: 2rem 10%;
   width: 100%;
   position: relative;
   background-color: #f5f5f5; /* Optional: background color */
@@ -286,7 +286,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
 }
@@ -314,6 +314,7 @@ section {
   font-size: 18px;
   cursor: pointer;
 }
+
 
 /* -------------------------------------------------- Project Section ------------------------------------------------------ */
 .projects {
@@ -493,6 +494,8 @@ footer {
   }
 }
 
+
+
 @media (max-width: 1280px) {
   header {
     padding: 1rem 2rem;
@@ -562,17 +565,44 @@ footer {
   .about-container img {
     width: 60vw;
   }
+
+.multiple-text {
+  display: none;
+}
   /* ------------------------------------------------ Experience Section ------------------------------------------------- */
   
-  .grid-description {
-    width: 80%; /* Prevent overflow */
+  .experience-section {
+    padding: 5px;
+    width: 100%; /* Augmente la largeur pour s’adapter aux petits écrans */
   }
 
-  .skill-category h1 {
-    margin-top: 2rem;
-    font-size: 1rem;
-    font-weight: 400;
+  .slider {
+    gap: 5px;
+    padding: 5px;
+    overflow-x: scroll;
+   
   }
+
+  .experience-card {
+    width: 100%; /* Augmente la largeur pour s’adapter aux petits écrans */
+    margin: 10px; /* Réduit l’espace autour des cartes */
+    padding: 10px;
+    font-size: 14px; /* Ajuste la taille du texte */
+  }
+
+ 
+
+  .popup-content {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .swiper-button-prev, 
+  .swiper-button-next {
+    display: none; /* Cache les boutons si Swiper ne fonctionne pas bien sur mobile */
+  }
+}
+
   /* --------------------------------------------Project section adjustment ----------------------------------------------*/
   /* Project section adjustment */
   .projects {
@@ -593,7 +623,7 @@ footer {
     flex-direction: column;
     gap: 0.5rem;
   }
-}
+
 
 @media (max-width: 600px) {
   header {
@@ -679,6 +709,21 @@ footer {
 
 @media (max-width: 480px) {
   /* Navigation */
+
+  body{
+    width: 100%;
+    margin: 0;
+  }
+  section {
+    /* Section title styling */
+  .section-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    padding-top: 0rem;
+    margin-bottom: 0rem;
+  }
+  }
   .nav-links {
     position: absolute;
     top: 90%;
@@ -700,23 +745,30 @@ footer {
 
   /* About Section */
   .info-box {
-    gap: 1rem;
+    gap: 0.5rem;
+    padding: 30px;
+  .text{
+    margin: 20px;
   }
-  .info-box h3 {
-    font-size: 1rem; /* Plus lisible sur mobile */
-    font-weight: 200;
+  h3, h1 {
+    font-size: 0.4rem; /* Plus lisible sur mobile */
+    font-weight: 100;
     opacity: 0.8;
   }
-  .info-box h1 {
-    font-size: 2rem; /* Moins imposant, adapté aux petits écrans */
-    font-weight: 600;
+  span {
+    display: none;
   }
-  .info-box span {
-    background: linear-gradient(to right, var(--color1), var(--color2));
-    background-clip: text;
-    color: transparent;
-    font-size: 2rem; /* Taille de texte plus cohérente */
-  }
+.btn-group{
+  width: 80%;
+  
+  
+}
+
+.logo{
+  width: 80%;
+  padding: 20px;
+}}
+   
 
   /*-------------------------------------------------- Footer Section ------------------------------------------------ */
   footer {
@@ -727,4 +779,4 @@ footer {
       flex-direction: column;
     }
   }
-}
+} 
