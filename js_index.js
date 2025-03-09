@@ -1,8 +1,8 @@
 // ecperience data 
 const experiences = [
     {
-      company: "Expleo",
-      logo: "images/logos/expleo-group-logo.svg",
+      company: "AMPERE",
+      logo: "images/logos/Ampere_Renault_Logo.png",
       role: "Software Validation Engineer",
       startDate: "September. 2023",
       endDate: "Mars. 2025",
@@ -29,8 +29,8 @@ const experiences = [
     ]
     },
     {
-        company: "Capgrmini Engineering",
-        logo: "images/logos/Capgemini-Logo.png",
+        company: "STELLANTIS",
+        logo: "images/logos/Stellantis_logo.png",
         role: "Mechatronic development consultant",
         startDate: "February. 2023 ",
         endDate: "June. 2023",
@@ -220,4 +220,12 @@ const typed = new Typed('.multiple-text',{
     backSpeed: 70,
     backDelay: 1500,
     loop: true,
+});
+
+
+const textarea = document.getElementById("userMessage");
+
+textarea.addEventListener("input", () => {
+  textarea.style.height = "auto";          // reset hauteur
+  textarea.style.height = textarea.scrollHeight + "px"; // ajuste à contenu
 });

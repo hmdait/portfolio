@@ -1,6 +1,12 @@
 :root {
-  --color1: #1e90ff;
-  --color2: #08f610;
+  --color1: #2c3e50; /* Bleu nuit */
+  --color2: #4ca1af; /* Bleu clair */
+  --color-bg: #f5f7fa; /* Fond des sections */
+  --color-text: #333; /* Texte principal */
+  --color-light: #777; /* Texte secondaire */
+  --color-white: #fff;
+  --radius: 1rem;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 * {
   margin: 0;
@@ -19,12 +25,13 @@ header {
   align-items: center;
   justify-content: center;
   gap: 4rem;
-  background-color: rgba(0, 0, 0, 0.9);
+  background: var(--color1);
   backdrop-filter: blur(8px);
   color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 2rem;
   z-index: 10000;
+
   a {
     color: #333;
   }
@@ -45,19 +52,24 @@ header {
 
     li a {
       position: relative;
-      color: aliceblue;
-      font-weight: 300;
+      color: var(--color-white);
+      font-weight: 400;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
     }
     li a::before {
-      position: absolute;
       content: "";
-      width: 0;
+      position: absolute;
       left: 0;
-      height: 5px;
-      top: 25px;
-      border-radius: 1rem;
-      transition: 0.3s ease-in-out;
+      bottom: -5px;
+      width: 0%;
+      height: 3px;
+      border-radius: 3px;
       background: linear-gradient(to right, var(--color1), var(--color2));
+      transition: width 0.3s ease-in-out;
+    }
+    li a:hover {
+      color: var(--color2);
     }
     li a:hover::before {
       width: 100%;
@@ -79,6 +91,23 @@ header {
     transform: scale(1.05);
     background: linear-gradient(to right, var(--color2), var(--color1));
   }
+  .btn {
+  border-radius: 3rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-white);
+  transition: 0.3s ease-in-out;
+  background: linear-gradient(to right, var(--color1), var(--color2));
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(to right, var(--color2), var(--color1));
+}
   #menu-icon {
     font-size: 2rem;
     display: none;
@@ -88,23 +117,22 @@ header {
 /* ----------------------------------------------- General section styling ----------------------------------------------------- */
 section {
   min-height: 100vh;
-  padding: 0rem 10%;
-  width: 100%;
-  position: relative;
-  background-color: #f5f5f5; /* Optional: background color */
+  padding: 4rem 10%;
+  background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
 
-  /* Section title styling */
-  .section-title {
-    text-align: center;
-    font-size: 4rem;
-    font-weight: 600;
-    padding-top: 4rem;
-    margin-bottom: 1rem;
-  }
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, var(--color1), var(--color2));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 /* ------------------------------------------------- About Section ----------------------------------------------------- */
@@ -113,7 +141,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 2rem;
+  padding-top: 4rem;
 
   a {
     color: black;
@@ -200,6 +228,7 @@ section {
     }
   }
 }
+
 /* Animation Logos */
 @keyframes marquee {
   0% {
@@ -245,14 +274,15 @@ section {
 .experience-card {
   flex: 0 0 auto;
   width: 50%;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.);
   margin: 40px;
   padding: 10px;
   text-align: center;
   scroll-snap-align: center;
   cursor: pointer;
-  transition: transform 0.3s;
+  background: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .experience-card:hover {
@@ -286,7 +316,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
 }
@@ -315,6 +345,7 @@ section {
   cursor: pointer;
 }
 
+
 /* -------------------------------------------------- Project Section ------------------------------------------------------ */
 .projects {
   a {
@@ -334,10 +365,12 @@ section {
       text-align: center;
       gap: 0.2rem;
       border: 2px solid black;
-      border-radius: 3rem;
       cursor: pointer;
-      transition: 0.3s ease-in-out;
       height: auto;
+      background: var(--color-white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
 
       img {
         width: 15vw;
@@ -348,7 +381,7 @@ section {
         font-size: 2rem;
         font-weight: 600;
       }
-      .btn-group .btn{
+      .btn-group .btn {
         margin: 5px;
       }
     }
@@ -356,7 +389,9 @@ section {
       background-color: black;
       color: beige;
       transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     }
+
     .projects-card:hover .btn {
       border: 2px solid white;
       color: antiquewhite;
@@ -467,26 +502,27 @@ section {
 
 /* ------------------------------------------------------ Footer ------------------------------------------------------------ */
 footer {
-  bottom: 0;
-  left: 0;
-  height: 10rem;
-  width: 100%;
+  background: var(--color1);
+  color: var(--color-white);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+footer ul {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
 
-  ul {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-  }
+footer ul li a {
+  color: var(--color-white);
+  transition: color 0.3s ease;
+}
 
-  ul li a {
-    font-weight: 600;
-    color: black;
-  }
+footer ul li a:hover {
+  color: var(--color2);
+}
   .copyright {
     font-size: 300;
     margin-top: 3rem;
@@ -562,37 +598,57 @@ footer {
   .about-container img {
     width: 60vw;
   }
+
+  .multiple-text {
+    display: none;
+  }
   /* ------------------------------------------------ Experience Section ------------------------------------------------- */
+
+  .experience-section {
+    padding: 5px;
+    width: 100%; /* Augmente la largeur pour s’adapter aux petits écrans */
+  }
+
+  .slider {
+    gap: 5px;
+    padding: 5px;
+    overflow-x: scroll;
+  }
+
+  .experience-card {
+    width: 100%; /* Augmente la largeur pour s’adapter aux petits écrans */
+    margin: 10px; /* Réduit l’espace autour des cartes */
+    padding: 10px;
+    font-size: 14px; /* Ajuste la taille du texte */
+  }
+
+  .popup-content {
+    width: 90%;
+    padding: 15px;
+  }
+
   
-  .grid-description {
-    width: 80%; /* Prevent overflow */
-  }
+}
 
-  .skill-category h1 {
-    margin-top: 2rem;
-    font-size: 1rem;
-    font-weight: 400;
+/* --------------------------------------------Project section adjustment ----------------------------------------------*/
+/* Project section adjustment */
+.projects {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
-  /* --------------------------------------------Project section adjustment ----------------------------------------------*/
-  /* Project section adjustment */
-  .projects {
-    .projects-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-  }
+}
 
-  /* Section-title */
-  .section-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
+/* Section-title */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
-  /* Contact Section  */
-  .input {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+/* Contact Section  */
+.input {
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 @media (max-width: 600px) {
@@ -679,6 +735,21 @@ footer {
 
 @media (max-width: 480px) {
   /* Navigation */
+
+  body {
+    width: 100%;
+    margin: 0;
+  }
+  section {
+    /* Section title styling */
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 500;
+      padding-top: 0rem;
+      margin-bottom: 0rem;
+    }
+  }
   .nav-links {
     position: absolute;
     top: 90%;
@@ -700,22 +771,28 @@ footer {
 
   /* About Section */
   .info-box {
-    gap: 1rem;
-  }
-  .info-box h3 {
-    font-size: 1rem; /* Plus lisible sur mobile */
-    font-weight: 200;
-    opacity: 0.8;
-  }
-  .info-box h1 {
-    font-size: 2rem; /* Moins imposant, adapté aux petits écrans */
-    font-weight: 600;
-  }
-  .info-box span {
-    background: linear-gradient(to right, var(--color1), var(--color2));
-    background-clip: text;
-    color: transparent;
-    font-size: 2rem; /* Taille de texte plus cohérente */
+    gap: 0.5rem;
+    padding: 30px;
+    .text {
+      margin: 20px;
+    }
+    h3,
+    h1 {
+      font-size: 0.4rem; /* Plus lisible sur mobile */
+      font-weight: 100;
+      opacity: 0.8;
+    }
+    span {
+      display: none;
+    }
+    .btn-group {
+      width: 80%;
+    }
+
+    .logo {
+      width: 80%;
+      padding: 20px;
+    }
   }
 
   /*-------------------------------------------------- Footer Section ------------------------------------------------ */
