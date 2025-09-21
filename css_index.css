@@ -19,24 +19,22 @@
 }
 header {
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4rem;
-  background: var(--color1);
-  backdrop-filter: blur(8px);
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 2rem;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: rgba(2, 52, 117, 0.3);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow);
   z-index: 10000;
 
   a {
     color: #333;
   }
   .logo {
-    color: white;
+    color: var(--color-white);
     font-size: 1.3rem;
     font-weight: 600;
     text-wrap: nowrap;
@@ -75,22 +73,7 @@ header {
       width: 100%;
     }
   }
-  .visit-btn {
-    padding: 0.8rem 1.5rem;
-    border-radius: 3rem;
-    border: none;
-    font-weight: 500;
-    font-size: 1rem;
-    color: azure;
-    cursor: pointer;
-    text-wrap: nowrap;
-    transition: 0.4s ease-in-out;
-    background: linear-gradient(to right, var(--color1), var(--color2));
-  }
-  .visit-btn:hover {
-    transform: scale(1.05);
-    background: linear-gradient(to right, var(--color2), var(--color1));
-  }
+
   .btn {
   border-radius: 3rem;
   padding: 0.8rem 1.5rem;
@@ -117,7 +100,7 @@ header {
 /* ----------------------------------------------- General section styling ----------------------------------------------------- */
 section {
   min-height: 100vh;
-  padding: 4rem 10%;
+  padding: 4rem 5%;
   background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
@@ -126,7 +109,7 @@ section {
 
 .section-title {
   text-align: center;
-  font-size: 3rem;
+  font-size: 6rem;
   font-weight: 700;
   margin-bottom: 2rem;
   background: linear-gradient(to right, var(--color1), var(--color2));
@@ -345,7 +328,6 @@ section {
   cursor: pointer;
 }
 
-
 /* -------------------------------------------------- Project Section ------------------------------------------------------ */
 .projects {
   a {
@@ -451,53 +433,59 @@ section {
 }
 
 /* -------------------------------------------------- Contact Section ------------------------------------------------------ */
-.contact {
-  padding: 0rem 2rem;
+.contact .input-box {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: #f5f5f5;
+  align-items: flex-start;
+  gap: 2rem; /* espace entre carte et textarea */
+}
+
+/* Carte */
+.contact .map iframe {
   width: 100%;
+  height: 300px;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
-  .input-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 2rem;
-    width: 100%;
+.contact .div-map{
+  flex: 0 0 40%; /* prend 40% */
+}
 
-    .input {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      gap: 1rem; /* Space between the icon and the textarea */
-      position: relative;
+/* Formulaire */
+.contact .input {
+  flex: 0 0 50%; /* prend 50% */
+  display: flex;
+  flex-direction: column;
+}
 
-      .map iframe {
-        border-radius: 1rem;
-        width: 400;
-        height: 300;
-      }
+.contact textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: none;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-      textarea {
-        border-radius: 1rem;
-        padding: 0.5rem;
-        font-size: 1rem;
-        width: 80vw;
-        height: 50vh;
-        resize: vertical;
-        box-sizing: border-box;
-      }
-      textarea::placeholder {
-        font-size: 1.2rem;
-        color: #999;
-      }
-    }
-  }
+/* Bouton */
+.contact .btn {
+  align-self: flex-start; /* bouton aligné à gauche */
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  background: linear-gradient(to right, var(--color1), var(--color2));
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact .btn:hover {
+  transform: scale(1.05);
 }
 
 /* ------------------------------------------------------ Footer ------------------------------------------------------------ */
@@ -527,16 +515,21 @@ footer ul li a:hover {
     font-size: 300;
     margin-top: 3rem;
   }
-}
 
-@media (max-width: 1280px) {
+
+@media (max-width: 1180px) {
   header {
-    padding: 1rem 2rem;
-    gap: 2rem;
+    padding: 1rem;
+    gap: 1rem;
+
+    .logo {
+      display: none;
+    }
+    
   }
   .about {
     .about-container {
-      gap: 3rem;
+      gap: 2rem;
     }
   }
   .input-box input {
@@ -567,23 +560,20 @@ footer ul li a:hover {
     gap: 1rem;
     padding: 1rem 1rem;
     justify-items: center;
-    width: 80vw;
-
-    .logo {
-      display: none;
-    }
-    .visit-btn {
+    
+    .btn {
       display: none;
     }
   }
+
 
   .about-container {
     flex-direction: column;
-    padding-top: 8rem;
+    padding-top: 2rem;
   }
   .input-box .input {
     padding: 1rem 2rem;
-    gap: 1.8rem;
+    gap: 1rem;
   }
   .input-box input::placeholder {
     font-size: 1.5rem;
@@ -649,15 +639,20 @@ footer ul li a:hover {
 .input {
   flex-direction: column;
   gap: 0.5rem;
+
+  .btn{
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media (max-width: 600px) {
   header {
-    padding: 1rem 5rem;
-    gap: 6rem;
+    padding: 0.2rem;
+    gap: 1rem;
 
     .nav-links li {
-      margin-top: 1.5rem;
+      margin-top: 0.2rem;
       padding: 1rem;
     }
     .nav-links.active {
@@ -684,15 +679,16 @@ footer ul li a:hover {
   }
 
   .about-container {
-    padding-left: 8px;
-    padding-right: 8px;
-
     img {
-      width: 60vw;
+      width: 80vw;
     }
   }
   .btn-group {
-    gap: 0.1rem;
+    gap: 1rem;
+
+    .Download-cv{
+      display: none;
+    }
   }
   /* Skills Section */
   .skills {
@@ -714,23 +710,25 @@ footer ul li a:hover {
     }
   }
 
+  /* Contact Section  */
+  .contact .input-box {
+    flex-direction: column;
+  }
+  .contact .div-map, .contact .input {
+    flex: 1 1 100%;
+    width: 100%;
+    height: auto;
+    padding: 0rem 0rem;
+  }
+  .btn{
+    width: 100%;
+    text-align: center;
+  }
+
   footer ul {
     gap: 1rem;
   }
 
-  /* Contact Section  */
-  .contact {
-    padding-bottom: 2rem;
-    .input {
-      flex-direction: column;
-      gap: 0.1rem;
-      iframe {
-        padding: 2px;
-        width: 80vw;
-        height: 100;
-      }
-    }
-  }
 }
 
 @media (max-width: 480px) {
@@ -738,13 +736,13 @@ footer ul li a:hover {
 
   body {
     width: 100%;
-    margin: 0;
+    margin: 0rem;
   }
   section {
     /* Section title styling */
     .section-title {
       text-align: center;
-      font-size: 3rem;
+      font-size: 2rem;
       font-weight: 500;
       padding-top: 0rem;
       margin-bottom: 0rem;
@@ -752,27 +750,24 @@ footer ul li a:hover {
   }
   .nav-links {
     position: absolute;
-    top: 90%;
-    margin-top: 0;
-    width: 100%;
-    padding: 1rem;
+    padding: 2rem;
+    width: 80%;
+
 
     li {
-      margin-top: 0.5rem;
       padding: 0.5rem;
     }
   }
 
   /* Header */
   header {
-    padding: 1rem 1.5rem; /* Ajustement pour plus de respiro sur les petits écrans */
+    padding: 1rem;
     gap: 1rem; /* Espace réduit entre les éléments */
   }
 
   /* About Section */
   .info-box {
     gap: 0.5rem;
-    padding: 30px;
     .text {
       margin: 20px;
     }
@@ -791,7 +786,7 @@ footer ul li a:hover {
 
     .logo {
       width: 80%;
-      padding: 20px;
+      padding: 10px;
     }
   }
 

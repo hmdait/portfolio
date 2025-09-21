@@ -175,6 +175,19 @@ const navLinks = document.querySelector('.nav-links');
 menuIcone.onclick = ()=>{
     navLinks.classList.toggle('active')
 }
+document.addEventListener("click", (event) => {
+  if (!menuIcon.contains(event.target) && !navLinks.contains(event.target)) {
+    navLinks.classList.remove("active");
+  }
+});
+// Fermer le menu quand on clique sur un lien
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
+
+
   
 function openVideo1() {
     // Path to Respons assiste video
@@ -229,3 +242,6 @@ textarea.addEventListener("input", () => {
   textarea.style.height = "auto";          // reset hauteur
   textarea.style.height = textarea.scrollHeight + "px"; // ajuste à contenu
 });
+
+
+
