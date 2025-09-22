@@ -176,7 +176,7 @@ menuIcone.onclick = ()=>{
     navLinks.classList.toggle('active')
 }
 document.addEventListener("click", (event) => {
-  if (!menuIcon.contains(event.target) && !navLinks.contains(event.target)) {
+  if (!menuIcone.contains(event.target) && !navLinks.contains(event.target)) {
     navLinks.classList.remove("active");
   }
 });

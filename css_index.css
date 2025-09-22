@@ -28,7 +28,7 @@ header {
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: var(--shadow);
-  z-index: 10000;
+  z-index: 100;
 
   a {
     color: #333;
@@ -302,6 +302,7 @@ section {
   background: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .popup-content {
@@ -612,12 +613,33 @@ footer ul li a:hover {
     font-size: 14px; /* Ajuste la taille du texte */
   }
 
-  .popup-content {
-    width: 90%;
-    padding: 15px;
+  .popup {
+  margin-top: 4rem 1rem;
+  z-index: 1000;
+  max-height: 100vh;   /* limite la hauteur du popup à 80% de la fenêtre */
+  overflow-y: auto;
   }
 
+  .popup-content {
+    width: 95%;
+    padding: 2rem;
+    z-index: 1000;
+    
+    #popup-details{
+      font-size:smaller;
+    }
+  }
   
+}
+
+.skills {
+  .skill-category {
+    h1 {
+      font-size:large;
+      font-weight: bolder;
+    }
+  
+  }
 }
 
 /* --------------------------------------------Project section adjustment ----------------------------------------------*/
