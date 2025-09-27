@@ -9,10 +9,9 @@
     <title>Porfolio Hamid AB</title>
     <link rel="stylesheet" href="css_index.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 </head>
 
@@ -25,9 +24,10 @@
             <li><a href="#experience">Experiences</a></li>
             <li><a href="#projects">Projetcs</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Cantact</a></li>
             <li><a href="https://drive.google.com/file/d/1I6uqsaW06U4WkDrHrV3v3diU-kbEAdeZ/view?usp=drive_link"
-                        download="Hamid_AIT_BAJJA_CV.pdf">Download CV</a></li>
+                    download="Hamid_AIT_BAJJA_CV.pdf">Download CV</a></li>
         </ul>
         <i class="fa-solid fa-bars" id="menu-icon"></i>
         <a href="https://github.com/hmdait"><button class="btn">Visit GitHub</button></a>
@@ -104,17 +104,17 @@
         <h2 class="section-title">Experiences</h2>
         <div class="experience-section">
             <div class="slider" id="experience-slider">
-              <!-- Experience cards will be dynamically added here -->
+                <!-- Experience cards will be dynamically added here -->
             </div>
-          </div>
-          
-          <div class="popup" id="experience-popup">
+        </div>
+
+        <div class="popup" id="experience-popup">
             <div class="popup-content">
-              <button class="close-popup" onclick="closePopup()">&times;</button>
-              <h3 id="popup-title"></h3>
-              <p id="popup-details"></p>
+                <button class="close-popup" onclick="closePopup()">&times;</button>
+                <h3 id="popup-title"></h3>
+                <p id="popup-details"></p>
             </div>
-          </div>
+        </div>
 
     </section>
 
@@ -166,7 +166,7 @@
     </section>
 
     <!-- ================================================Skills Section ================================================== -->
-    <section id="skills" class="skills">
+    <section class="skills" id="skills">
         <h2 class="sub-heading section-title">Skills</h2>
         <div class="skill-category">
             <h1>Programming Languages:</h1>
@@ -329,6 +329,43 @@
 
     </section>
 
+    <!-- ================================================Certifs Section ==================================================-->
+    <section class="certifications" id="certifications">
+        <h2 class="section-title">Training Certificates</h2>
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/ISTQB.jpg">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/Embedded_Software_and_Hardware_rchitecture.jpeg">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/c_basics.jpeg">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/scrum.png">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/web_design.png">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/LeaderShip.png">
+                </div>
+                
+            
+            </div>
+
+            <!-- navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+
     <!-- ================================================Contact Section ==================================================-->
     <section class="contact" id="contact">
         <h2 class="section-title">Contact Me</h2>
@@ -336,13 +373,14 @@
             <div class="div-map">
                 <div class="map">
                     <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d82204.12491042227!2d7.170410835434267!3d43.70316565362109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cdd0106a852d31%3A0x40819a5fd979a70!2sNice!5e1!3m2!1sfr!2sfr!4v1741539241098!5m2!1sfr!2sfr" 
-                    width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d82204.12491042227!2d7.170410835434267!3d43.70316565362109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cdd0106a852d31%3A0x40819a5fd979a70!2sNice!5e1!3m2!1sfr!2sfr!4v1741539241098!5m2!1sfr!2sfr"
+                        width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="input">
-                <textarea id="userMessage" placeholder="I look forward to hearing from you and discussing exciting new opportunities!."></textarea>
+                <textarea id="userMessage"
+                    placeholder="I look forward to hearing from you and discussing exciting new opportunities!."></textarea>
                 <div id="submit-btn" class="btn">Submit</div>
             </div>
         </div>
@@ -355,6 +393,7 @@
             <li><a href="#experience">Experiences</a></li>
             <li><a href="#projects">Projetcs</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Cantact</a></li>
         </ul>
         <p class="copyright">© 2024 Hamid AIT BAJJA - All Rights Reserved</p>
@@ -366,6 +405,26 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <!-- Main Js script -->
     <script defer src="js_index.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        const swiper = new Swiper(".mySwiper", {
+            loop: true,
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 1,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+
 </body>
 
 </html>
