@@ -265,25 +265,23 @@ section {
   padding: 10px;
 }
 
-.slider {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 10px;
-  scroll-snap-type: x mandatory;
+.myExperienceSwiper {
+  width: 100%;
+  padding: 20px 0;
 }
 
-.slider::-webkit-scrollbar {
-  display: none;
+.myExperienceSwiper .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
 }
 
 .experience-card {
   flex: 0 0 auto;
-  width: 50%;
-  margin: 40px;
-  padding: 10px;
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
   text-align: center;
-  scroll-snap-align: center;
   cursor: pointer;
   background: var(--color-white);
   border-radius: var(--radius);
@@ -302,6 +300,7 @@ section {
   height: 150px;
   border-radius: 40%;
   margin-bottom: 10px;
+  object-fit: contain;
 }
 
 .experience-card h3 {
@@ -315,6 +314,7 @@ section {
   margin: 5px 0;
 }
 
+/* Popup */
 .popup {
   display: none;
   position: fixed;
@@ -351,6 +351,64 @@ section {
   font-size: 18px;
   cursor: pointer;
 }
+
+/* Swiper custom styles */
+.experience-next,
+.experience-prev {
+  color: var(--color-primary, #333);
+}
+
+.experience-pagination .swiper-pagination-bullet {
+  background: var(--color-primary, #333);
+}
+
+
+/* Toutes les cartes par défaut */
+.myExperienceSwiper .swiper-slide .experience-card {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.6;
+  transform: scale(0.9);
+}
+
+/* Slide centrale (active) */
+.myExperienceSwiper .swiper-slide-active .experience-card {
+  transform: scale(1.1); /* Zoom */
+  opacity: 1;
+  z-index: 10;
+}
+
+.myExperienceSwiper .experience-pagination {
+  position: absolute;
+  bottom: 0;       /* en bas du conteneur */
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+/* Toutes les cartes par défaut */
+.myExperienceSwiper .swiper-slide .experience-card {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.6;
+  transform: scale(0.9); /* Zoom désactivé sur mobile via media query */
+}
+
+/* Slide centrale (desktop/tablette) */
+@media (min-width: 769px) {
+  .myExperienceSwiper .swiper-slide-active .experience-card {
+    transform: scale(1.1); /* Zoom carte centrale */
+    opacity: 1;
+    z-index: 10;
+  }
+}
+
+/* Mobile : pas de zoom */
+@media (max-width: 768px) {
+  .myExperienceSwiper .swiper-slide .experience-card {
+    transform: scale(1); /* désactive zoom */
+    opacity: 1;
+  }
+}
+
+
 
 /* -------------------------------------------------- Project Section ------------------------------------------------------ */
 .projects {
@@ -768,15 +826,14 @@ footer ul li a:hover {
     .nav-links {
       position: absolute;
       top: 100%;
-      margin-top: 1rem;
       width: 100%;
-      padding: 1rem;
+      margin-left: 0px;
       color: aliceblue;
       display: flex;
       flex-direction: column;
-      text-align: center;
+      text-align:left;
       background: rgba(0, 0, 0, 0.9);
-      border-radius: 3rem;
+      backdrop-filter: blur(15px);
       display: none;
     }
   }

@@ -9,9 +9,9 @@
     <title>Porfolio Hamid AB</title>
     <link rel="stylesheet" href="css_index.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 </head>
 
@@ -99,12 +99,22 @@
         </div>
     </section>
 
-    <!-- ================================================Experience Section ================================================== -->
+    <!-- ================================================ Experience Section ================================================== -->
     <section class="experience" id="experience">
         <h2 class="section-title">Experiences</h2>
         <div class="experience-section">
-            <div class="slider" id="experience-slider">
-                <!-- Experience cards will be dynamically added here -->
+            <!-- Swiper container -->
+            <div class="swiper myExperienceSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Experience cards will be dynamically added here -->
+                </div>
+
+                <!-- Swiper navigation buttons -->
+                <div class="swiper-button-next experience-next"></div>
+                <div class="swiper-button-prev experience-prev"></div>
+
+                <!-- Swiper pagination -->
+                <div class="swiper-pagination experience-pagination"></div>
             </div>
         </div>
 
@@ -115,7 +125,6 @@
                 <p id="popup-details"></p>
             </div>
         </div>
-
     </section>
 
     <!-- ================================================Projects Section ================================================== -->
@@ -353,8 +362,8 @@
                 <div class="swiper-slide">
                     <img src="images/LeaderShip.png">
                 </div>
-                
-            
+
+
             </div>
 
             <!-- navigation -->

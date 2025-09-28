@@ -72,38 +72,57 @@ const experiences = [
       },
   ];
 
-const slider = document.getElementById('experience-slider');
+  // ------------------------------------Experience --------------------------------------//
+const expWrapper = document.querySelector(".myExperienceSwiper .swiper-wrapper");
 
-  experiences.forEach(exp => {
-    const card = document.createElement('div');
-    card.className = 'experience-card';
-    card.innerHTML = `
+experiences.forEach(exp => {
+  const card = document.createElement("div");
+  card.className = "swiper-slide";
+  card.innerHTML = `
+    <div class="experience-card">
       <img src="${exp.logo}" alt="${exp.company} logo">
       <h3>${exp.company}</h3>
       <p><strong>${exp.role}</strong></p>
       <p>${exp.startDate} - ${exp.endDate}</p>
       <p>${exp.summary}</p>
-      
-    `;
-    card.addEventListener('click', () => showPopup(exp.company, exp.details));
-    slider.appendChild(card);
-  });
+    </div>
+  `;
+  card.addEventListener("click", () => showPopup(exp.company, exp.details));
+  expWrapper.appendChild(card);
+});
 
-  function showPopup(title, details) {
-    document.getElementById('popup-title').innerText = "Tasks :";
-  
-    // Join the details array with HTML paragraph tags and set as innerHTML
-    const formattedDetails = details.map(item => `<p>${item}</p>`).join('');
-    document.getElementById('popup-details').innerHTML = formattedDetails;
-  
-    document.getElementById('experience-popup').style.display = 'flex';
-  }
-  
+function showPopup(title, details) {
+  document.getElementById("popup-title").innerText = "Tasks :";
+  document.getElementById("popup-details").innerHTML = details
+    .map(item => `<p>${item}</p>`)
+    .join("");
+  document.getElementById("experience-popup").style.display = "flex";
+}
 
-  function closePopup() {
-    document.getElementById('experience-popup').style.display = 'none';
-  }
+function closePopup() {
+  document.getElementById("experience-popup").style.display = "none";
+}
 
+// Swiper init responsive
+const expSwiper = new Swiper(".myExperienceSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  loop: true,
+  centeredSlides: true,
+  pagination: {
+    el: ".experience-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".experience-next",
+    prevEl: ".experience-prev",
+  },
+  breakpoints: {
+    480: { slidesPerView: 1, centeredSlides: true },
+    768: { slidesPerView: 2, centeredSlides: true },
+    1024: { slidesPerView: 3, centeredSlides: true },
+  },
+});
   
 
 const aboutSection = Vue.createApp({
