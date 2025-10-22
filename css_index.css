@@ -372,7 +372,7 @@ section {
 
 /* Slide centrale (active) */
 .myExperienceSwiper .swiper-slide-active .experience-card {
-  transform: scale(1.1); /* Zoom */
+  transform: scale(1.01); /* Zoom */
   opacity: 1;
   z-index: 10;
 }
@@ -388,13 +388,13 @@ section {
 .myExperienceSwiper .swiper-slide .experience-card {
   transition: transform 0.4s ease, opacity 0.4s ease;
   opacity: 0.6;
-  transform: scale(0.9); /* Zoom désactivé sur mobile via media query */
+  transform: scale(0.8); /* Zoom désactivé sur mobile via media query */
 }
 
 /* Slide centrale (desktop/tablette) */
 @media (min-width: 769px) {
   .myExperienceSwiper .swiper-slide-active .experience-card {
-    transform: scale(1.1); /* Zoom carte centrale */
+    transform: scale(1); /* Zoom carte centrale */
     opacity: 1;
     z-index: 10;
   }
@@ -402,8 +402,8 @@ section {
 
 /* Mobile : pas de zoom */
 @media (max-width: 768px) {
-  .myExperienceSwiper .swiper-slide .experience-card {
-    transform: scale(1); /* désactive zoom */
+  .myExperienceSwiper .swiper-slide-active .experience-card {
+    transform: scale(0.95); /* désactive zoom */
     opacity: 1;
   }
 }
