@@ -3,9 +3,9 @@ const experiences = [
     {
       company: "AMPERE",
       logo: "images/logos/Ampere_Renault_Logo.png",
-      role: "Software Validation Engineer",
+      role: "Systems integration Engineer",
       startDate: "September. 2023",
-      endDate: "Mars. 2025",
+      endDate: "present",
       summary: "Wrote test automation scripts for ADAS systems {UPA/FKP, DMS, and SVS}, reducing manual test time by 40% and increasing ...",
       details: [
         "- Wrote test automation scripts for ADAS systems {UPA/FKP, DMS, and SVS}, reducing manual test time by 40% and increasing test coverage by configuring the test environment on a HIL bench to ensure accurate and efficient testing.",
@@ -84,7 +84,7 @@ experiences.forEach(exp => {
       <h3>${exp.company}</h3>
       <p><strong>${exp.role}</strong></p>
       <p>${exp.startDate} - ${exp.endDate}</p>
-      <p>${exp.summary}</p>
+      <p class="exp-summary">${exp.summary}</p>
     </div>
   `;
   card.addEventListener("click", () => showPopup(exp.company, exp.details));
@@ -128,7 +128,7 @@ const expSwiper = new Swiper(".myExperienceSwiper", {
 const aboutSection = Vue.createApp({
     data(){
         return {
-            aboutMe:'Software Validation Engineer with solid expertise in test automation, embedded systems validation, and developing solutions for ADAS systems. Passionate about technological innovation, I successfully tackle complex challenges related to intelligent systems. My dedication, energy, along with my communication and project management skills, enable me to make valuable contributions.',
+            aboutMe:'Systems Integration Engineer, certified ISTQB® – Certified Tester, Foundation Level (Syllabus v4.0), with solid expertise in software testing and validation processes aligned with international standards. My experience covers test planning and execution, test automation, defect analysis, and validation cycle optimization to ensure software quality and reliability. With a strong background in development and integration, I apply quality-driven approaches such as TDD and CI/CD, leveraging modern tools to enhance system performance and robustness.  Passionate about innovation, I’m committed to delivering reliable, efficient, and compliant solutions that meet the highest quality standards.',
             
         }
     }
@@ -247,7 +247,7 @@ function sendEmail() {
 
 /* ----------------------------------Typed Js----------------------------------------*/
 const typed = new Typed('.multiple-text',{
-    strings: ['Software Engineer', 'Mechatronics Engineer'],
+    strings: ['Software Engineer', 'Systems integration Engineer'],
     typeSpeed: 70,
     backSpeed: 70,
     backDelay: 1500,
