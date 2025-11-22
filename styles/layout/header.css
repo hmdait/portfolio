@@ -1,0 +1,193 @@
+/* ============================================
+   LAYOUT/HEADER.CSS - COMPLETE FIX
+   ============================================ */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+  transition: all var(--transition-base);
+  background: rgba(30, 41, 59, 0.3);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.header--scrolled {
+  background: rgba(30, 41, 59, 0.95);
+  box-shadow: var(--shadow-lg);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header__logo {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-white);
+  transition: transform var(--transition-base);
+  z-index: calc(var(--z-fixed) + 20);
+  position: relative;
+}
+
+.header__logo:hover {
+  transform: scale(1.05);
+}
+
+/* Desktop Navigation */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.header__nav-link {
+  position: relative;
+  color: var(--color-white);
+  font-weight: var(--font-normal);
+  padding: var(--space-2) 0;
+  transition: color var(--transition-base);
+}
+
+.header__nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-sm);
+  transition: width var(--transition-base);
+}
+
+.header__nav-link:hover,
+.header__nav-link--active {
+  color: var(--color-primary-400);
+}
+
+.header__nav-link:hover::before,
+.header__nav-link--active::before {
+  width: 100%;
+}
+
+.header__menu-icon {
+  display: none;
+  color: var(--color-white);
+  font-size: var(--text-3xl);
+  cursor: pointer;
+  z-index: calc(var(--z-fixed) + 20);
+  background: none;
+  border: none;
+  position: relative;
+}
+
+.header__github-btn {
+  display: inline-flex;
+}
+
+/* ============================================
+   MOBILE STYLES (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .header__container {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  /* Show hamburger menu icon */
+  .header__menu-icon {
+    display: block;
+  }
+
+  /* Hide desktop GitHub button completely */
+  .header__github-btn {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Mobile menu overlay */
+  .header__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(15px);
+    padding: var(--space-20) var(--space-8);
+    gap: var(--space-6);
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform var(--transition-base), 
+                opacity var(--transition-base), 
+                visibility var(--transition-base);
+    justify-content: center;
+    align-items: center;
+    z-index: calc(var(--z-fixed) + 10);
+    display: flex;
+    overflow-y: auto;
+  }
+
+  /* Show menu when open */
+  .header__nav--open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header__nav-link {
+    font-size: var(--text-xl);
+    text-align: center;
+  }
+
+  /* Prevent interactions when menu is closed */
+  .header__nav:not(.header__nav--open) {
+    pointer-events: none;
+  }
+
+  .header__nav--open {
+    pointer-events: all;
+  }
+
+  /* Ensure the Download CV button in nav shows properly */
+  .header__nav .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .header__logo {
+    font-size: var(--text-xl);
+  }
+
+  .header__logo span {
+    display: block;
+  }
+
+  .header__menu-icon {
+    font-size: var(--text-2xl);
+  }
+
+  .header__nav-link {
+    font-size: var(--text-lg);
+  }
+}

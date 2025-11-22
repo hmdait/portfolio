@@ -1,0 +1,73 @@
+/* ============================================
+   SECTIONS/CONTACT.CSS
+   ============================================ */
+
+.contact-section {
+  position: relative;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.contact__map-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.contact__map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.contact__map iframe {
+  width: 100%;
+  height: 400px;
+  display: block;
+}
+
+.contact__form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.contact__textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: var(--space-4);
+  border: 2px solid var(--color-gray-300);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-family: var(--font-family);
+  resize: vertical;
+  transition: border-color var(--transition-base);
+}
+
+.contact__textarea:focus {
+  outline: none;
+  border-color: var(--color-primary-400);
+}
+
+.btn--full-width {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .contact__map iframe {
+    height: 300px;
+  }
+
+  .contact__textarea {
+    min-height: 200px;
+  }
+}
