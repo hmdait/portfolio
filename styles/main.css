@@ -1,0 +1,34 @@
+/* ============================================
+   MAIN.CSS
+   Main stylesheet - imports all CSS modules
+   ============================================ */
+
+/* === BASE STYLES === */
+@import url('base/variables.css');
+@import url('base/reset.css');
+
+/* === LAYOUT === */
+@import url('layout/section.css');
+@import url('layout/header.css');
+@import url('layout/footer.css');
+
+/* === COMPONENTS === */
+@import url('components/buttons.css');
+@import url('components/cards.css');
+@import url('components/modals.css');
+
+/* === SECTIONS === */
+@import url('sections/about.css');
+@import url('sections/experience.css');
+@import url('sections/projects.css');
+@import url('sections/skills.css');
+@import url('sections/certifications.css');
+@import url('sections/contact.css');
+
+/* === UTILITIES === */
+@import url('utilities/animations.css');
+@import url('utilities/helpers.css');
+
+
+
+

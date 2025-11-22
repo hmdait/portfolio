@@ -1,0 +1,35 @@
+/* ============================================
+   LAYOUT/SECTION.CSS
+   ============================================ */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-0) var(--space-12) var(--space-12) var(--space-12);
+}
+
+.section__title {
+  text-align: center;
+  font-size: var(--text-4xl) !important;
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-12);
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.section--bg-white {
+  background-color: var(--color-white);
+}
+
+.section--bg-gray {
+  background-color: var(--color-bg-primary);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}

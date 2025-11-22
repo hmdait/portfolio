@@ -1,0 +1,72 @@
+/* ============================================
+   UTILITIES/HELPERS.CSS
+   ============================================ */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+.mt-4 { margin-top: var(--space-4); }
+.mt-8 { margin-top: var(--space-8); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-8 { margin-bottom: var(--space-8); }
+
+.hidden { display: none; }
+.block { display: block; }
+.flex { display: flex; }
+.grid { display: grid; }
+
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+  .section__title {
+    font-size: var(--text-5xl);
+  }
+  
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-16) var(--space-4);
+  }
+  
+  .section__title {
+    font-size: var(--text-4xl);
+  }
+  
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .section__title {
+    font-size: var(--text-3xl);
+  }
+  
+  .experience-card {
+    min-height: auto;
+    padding: var(--space-6);
+  }
+  
+  .modal__content {
+    padding: var(--space-6);
+  }
+}

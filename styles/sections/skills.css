@@ -1,0 +1,148 @@
+/* ============================================
+   SECTIONS/SKILLS.CSS - FINAL WORKING VERSION
+   ============================================ */
+
+.skills-section {
+  position: relative;
+}
+
+.skill-category {
+  margin-bottom: var(--space-12);
+}
+
+.skill-category:last-child {
+  margin-bottom: 0;
+}
+
+.skill-category__title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-6);
+  color: var(--color-text-primary);
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.skill-item {
+  margin-bottom: 0;
+}
+
+.skill-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+  gap: var(--space-4);
+}
+
+.skill-item__name {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  flex: 1;
+}
+
+.skill-item__level {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* Skill level color coding */
+.skill-item__level {
+  background: var(--color-gray-200);
+  color: var(--color-gray-700);
+}
+
+/* You can add different colors for different levels if you want */
+.skill-item:has(.skill-item__level:contains("Expert")) .skill-item__level,
+.skill-item:has(.skill-item__level:contains("Advanced")) .skill-item__level {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  color: var(--color-white);
+}
+
+.skill-item:has(.skill-item__level:contains("Intermediate")) .skill-item__level {
+  background: var(--color-primary-600);
+  color: var(--color-white);
+}
+
+.skill-item:has(.skill-item__level:contains("Beginner")) .skill-item__level {
+  background: var(--color-gray-300);
+  color: var(--color-gray-700);
+}
+
+/* Skill Bar Container */
+.skill-bar {
+  width: 100%;
+  height: 10px;
+  background-color: var(--color-gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Skill Bar Fill */
+.skill-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2c3e50, #4ca1af);
+  border-radius: var(--radius-full);
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: block;
+  box-shadow: 0 2px 4px rgba(76, 161, 175, 0.3);
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+  
+  .skill-category__title {
+    font-size: var(--text-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .skill-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  
+  .skill-category {
+    margin-bottom: var(--space-10);
+  }
+  
+  .skill-category__title {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-4);
+  }
+  
+  .skill-item__name {
+    font-size: var(--text-sm);
+  }
+  
+  .skill-item__level {
+    font-size: var(--text-xs);
+    padding: 2px var(--space-2);
+  }
+}
+
+@media (max-width: 640px) {
+  .skill-bar {
+    height: 8px;
+  }
+  
+  .skill-item__header {
+    gap: var(--space-2);
+  }
+}

@@ -1,0 +1,59 @@
+/* ============================================
+   SECTIONS/EXPERIENCE.CSS 
+   ============================================ */
+
+.experience-section {
+  position: relative;
+  padding-top: var(--space-0);
+}
+
+.myExperienceSwiper {
+  width: 100%;
+  padding: var(--space-8) 0 var(--space-16);
+}
+
+.myExperienceSwiper .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.myExperienceSwiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.experience-card {
+  flex: 1;
+  opacity: 0.4;
+  transform: scale(0.9);
+  transition: all var(--transition-base);
+}
+
+.myExperienceSwiper .swiper-slide-active .experience-card {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.experience-card:hover {
+  background: var(--color-gray-100);
+}
+
+/* Swiper Navigation Buttons */
+.experience-next,
+.experience-prev {
+  color: var(--color-primary-800);
+}
+
+.experience-pagination .swiper-pagination-bullet-active {
+  background: var(--color-primary-800);
+}
+
+.space{
+  height: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .myExperienceSwiper .swiper-slide-active .experience-card {
+    transform: scale(0.95);
+  }
+}

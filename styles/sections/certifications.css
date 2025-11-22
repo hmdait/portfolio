@@ -1,0 +1,43 @@
+/* ============================================
+   CERTIFICATIONS SECTION
+   ============================================ */
+
+.certifications-section {
+  position: relative;
+}
+
+.myCertificationsSwiper {
+  width: 90%;
+  padding: var(--space-8) 0 var(--space-16);
+}
+
+.myCertificationsSwiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.myCertificationsSwiper .swiper-slide img {
+  max-width: 50%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+.myCertificationsSwiper .swiper-button-next,
+.myCertificationsSwiper .swiper-button-prev {
+  color: var(--color-primary-800);
+}
+
+.myCertificationsSwiper .swiper-pagination-bullet-active {
+  background: var(--color-primary-800);
+}
+
+@media (max-width: 640px) {
+  .myCertificationsSwiper .swiper-slide img {
+    max-width: 100%;
+    max-height: 400px;
+  }
+}
