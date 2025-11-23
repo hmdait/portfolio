@@ -127,7 +127,7 @@
   }
 
   .about__title {
-    font-size: var(--text-2xl);
+    font-size: var(--text-xl);
   }
 
   .about__image {

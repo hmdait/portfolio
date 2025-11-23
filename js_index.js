@@ -1,125 +1,215 @@
 // ============================================
-// JS_INDEX.JS - Main Application Logic
-// Uses data from data.js
+// JS_INDEX.JS - FIXED VERSION
 // ============================================
 
-// These functions MUST be global to work with onclick attributes
+// ============================================
+// GLOBAL FUNCTIONS (MUST BE AT TOP!)
+// ============================================
 function openVideo1() {
-  const videoPath = 'https://drive.google.com/file/d/1qJQlDMIGqlszMTsI5pQZZzSY0RS2r1aC/view?usp=sharing';
-  window.open(videoPath, '_blank');
+  window.open('https://drive.google.com/file/d/1qJQlDMIGqlszMTsI5pQZZzSY0RS2r1aC/view?usp=sharing', '_blank');
 }
 
 function openVideo2() {
-  const videoPath = 'https://drive.google.com/file/d/1exKXQZmpVaDemvtBU8Hr1UKZM6jqm8GO/view?usp=drive_link';
-  window.open(videoPath, '_blank');
+  window.open('https://drive.google.com/file/d/1exKXQZmpVaDemvtBU8Hr1UKZM6jqm8GO/view?usp=drive_link', '_blank');
 }
 
 function openVideo3() {
-  const videoPath = 'https://docs.google.com/presentation/d/1PhgUvstQkO5BZnhnWVLVb8qSPsIRLMTb/edit?usp=drive_link&ouid=105801039597573388513&rtpof=true&sd=true';
-  window.open(videoPath, '_blank');
+  window.open('https://docs.google.com/presentation/d/1PhgUvstQkO5BZnhnWVLVb8qSPsIRLMTb/edit?usp=drive_link&ouid=105801039597573388513&rtpof=true&sd=true', '_blank');
 }
 
-// Wait for data to be loaded
+// ============================================
+// MAIN CODE
+// ============================================
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('🚀 Portfolio initializing...');
+  
   // Check if data is loaded
   if (!window.portfolioData) {
-    console.error('Data not loaded! Make sure data.js is included before js_index.js');
+    console.error('❌ Data not loaded!');
     return;
   }
 
-  console.log('Portfolio data loaded successfully');
+  console.log('✅ Portfolio data loaded');
 
   // Get data from global scope
   const { personalInfo, experiences, projects, skills } = window.portfolioData;
 
-  initializePortfolio(personalInfo, experiences, projects, skills);
-});
-
-function initializePortfolio(personalInfo, experiences, projects, skills) {
-
   // ============================================
-  // HEADER - NAVIGATION & SCROLL EFFECTS
+  // VUE.JS INSTANCES - MOUNT FIRST!
   // ============================================
 
-  const header = document.getElementById('header');
-  const menuIcon = document.getElementById('menuIcon');
-  const navMenu = document.getElementById('navMenu');
-  const navLinks = document.querySelectorAll('.header__nav-link');
-
-  // Handle scroll effects
-  let lastScrollTop = 0;
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    // Add scrolled class for styling
-    if (scrollTop > 50) {
-      header.classList.add('header--scrolled');
-    } else {
-      header.classList.remove('header--scrolled');
-    }
-
-    lastScrollTop = scrollTop;
-  });
-
-  // Mobile menu toggle
-  if (menuIcon) {
-    menuIcon.addEventListener('click', () => {
-      navMenu.classList.toggle('header__nav--open');
-      const icon = menuIcon.querySelector('i');
-
-      if (navMenu.classList.contains('header__nav--open')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+  // Header Vue Instance
+  const headerSection = Vue.createApp({
+    data() {
+      return {
+        name: personalInfo.name,
+        cvLink: personalInfo.social.cv,
+        githubLink: personalInfo.social.github
       }
-    });
-  }
-
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (event) => {
-    if (!menuIcon.contains(event.target) && !navMenu.contains(event.target)) {
-      navMenu.classList.remove('header__nav--open');
-      const icon = menuIcon.querySelector('i');
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
     }
   });
+  headerSection.mount('#header');
 
-  // Close mobile menu when clicking a link
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('header__nav--open');
-      const icon = menuIcon.querySelector('i');
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
-    });
+  // About Section
+  const aboutSection = Vue.createApp({
+    data() {
+      return {
+        name: personalInfo.name,
+        title: personalInfo.title,
+        roles: personalInfo.roles,
+        aboutMe: personalInfo.about,
+        social: personalInfo.social,
+        profileImage: personalInfo.profileImage
+      }
+    }
   });
+  aboutSection.mount('#about');
 
-  // Active section highlighting
-  const sections = document.querySelectorAll('section[id]');
+  // Projects Section
+  const projectSection = Vue.createApp({
+    data() {
+      return {
+        project_1: projects[0],
+        project_2: projects[1],
+        project_3: projects[2]
+      }
+    }
+  });
+  projectSection.mount('#projects');
 
-  function highlightNavigation() {
-    const scrollY = window.pageYOffset;
+  // Skills Section
+  const skillsSection = Vue.createApp({
+    data() {
+      return {
+        skillCategories: skills
+      }
+    },
+    mounted() {
+      this.$nextTick(() => {
+        this.animateSkillBars();
+      });
+    },
+    methods: {
+      getCategoryTitle(categoryKey) {
+        const titles = {
+          'programmingLanguages': 'Programming Languages',
+          'frameworks': 'Frameworks',
+          'protocols': 'Communication Protocols',
+          'toolsChains': 'Tools Chains'
+        };
+        return titles[categoryKey] || categoryKey;
+      },
+      animateSkillBars() {
+        const skillBars = document.querySelectorAll('.skills-section .skill-bar__fill');
+        skillBars.forEach((bar, index) => {
+          setTimeout(() => {
+            bar.style.transition = 'width 1.5s ease-out';
+          }, index * 50);
+        });
+      }
+    }
+  });
+  skillsSection.mount('#skills');
 
-    sections.forEach(section => {
-      const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 100;
-      const sectionId = section.getAttribute('id');
-      const navLink = document.querySelector(`.header__nav-link[href="#${sectionId}"]`);
+  // ============================================
+  // HEADER - NAVIGATION & MOBILE MENU
+  // ============================================
 
-      if (navLink) {
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          navLink.classList.add('header__nav-link--active');
+  // Small delay to ensure Vue has rendered
+  setTimeout(() => {
+    const header = document.getElementById('header');
+    const menuIcon = document.getElementById('menuIcon');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.header__nav-link');
+
+    // Handle scroll effects
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > 50) {
+        header.classList.add('header--scrolled');
+      } else {
+        header.classList.remove('header--scrolled');
+      }
+
+      lastScrollTop = scrollTop;
+    });
+
+    // Mobile menu toggle
+    if (menuIcon && navMenu) {
+      
+      menuIcon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        navMenu.classList.toggle('header__nav--open');
+        const icon = menuIcon.querySelector('i');
+
+        if (navMenu.classList.contains('header__nav--open')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
         } else {
-          navLink.classList.remove('header__nav-link--active');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    } 
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (menuIcon && navMenu) {
+        if (!menuIcon.contains(event.target) && !navMenu.contains(event.target)) {
+          navMenu.classList.remove('header__nav--open');
+          const icon = menuIcon.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
         }
       }
     });
-  }
 
-  window.addEventListener('scroll', highlightNavigation);
+    // Close mobile menu when clicking a link
+    if (navLinks.length > 0) {
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (navMenu) {
+            navMenu.classList.remove('header__nav--open');
+            const icon = menuIcon.querySelector('i');
+            if (icon) {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+      });
+    }
+
+    // Active section highlighting
+    const sections = document.querySelectorAll('section[id]');
+
+    function highlightNavigation() {
+      const scrollY = window.pageYOffset;
+
+      sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        const navLink = document.querySelector(`.header__nav-link[href="#${sectionId}"]`);
+
+        if (navLink) {
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLink.classList.add('header__nav-link--active');
+          } else {
+            navLink.classList.remove('header__nav-link--active');
+          }
+        }
+      });
+    }
+
+    window.addEventListener('scroll', highlightNavigation);
+    
+  }, 100); // Small delay for Vue to render
 
   // ============================================
   // EXPERIENCE SECTION - SWIPER & MODAL
@@ -133,14 +223,14 @@ function initializePortfolio(personalInfo, experiences, projects, skills) {
     slide.className = 'swiper-slide';
 
     slide.innerHTML = `
-    <div class="card experience-card" data-index="${index}">
-      <img src="${exp.logo}" alt="${exp.company} logo" class="experience-card__logo">
-      <h3 class="experience-card__company">${exp.company}</h3>
-      <p class="experience-card__role">${exp.role}</p>
-      <p class="experience-card__date">${exp.startDate} - ${exp.endDate}</p>
-      <p class="experience-card__summary">${exp.summary}</p>
-    </div>
-  `;
+      <div class="card experience-card" data-index="${index}">
+        <img src="${exp.logo}" alt="${exp.company} logo" class="experience-card__logo">
+        <h3 class="experience-card__company">${exp.company}</h3>
+        <p class="experience-card__role">${exp.role}</p>
+        <p class="experience-card__date">${exp.startDate} - ${exp.endDate}</p>
+        <p class="experience-card__summary">${exp.summary}</p>
+      </div>
+    `;
 
     experienceWrapper.appendChild(slide);
   });
@@ -184,12 +274,8 @@ function initializePortfolio(personalInfo, experiences, projects, skills) {
 
   function showExperienceModal(index) {
     const exp = experiences[index];
-
     modalTitle.textContent = `${exp.company} - Tasks`;
-    modalBody.innerHTML = exp.details
-      .map(detail => `<p>${detail}</p>`)
-      .join('');
-
+    modalBody.innerHTML = exp.details.map(detail => `<p>${detail}</p>`).join('');
     modal.classList.add('modal--open');
     document.body.style.overflow = 'hidden';
   }
@@ -248,198 +334,6 @@ function initializePortfolio(personalInfo, experiences, projects, skills) {
   });
 
   // ============================================
-  // VUE.JS INSTANCES
-  // ============================================
-
-  // About Section
-const aboutSection = Vue.createApp({
-  data() {
-    return {
-      name: personalInfo.name,
-      title: personalInfo.title,
-      roles: personalInfo.roles,
-      aboutMe: personalInfo.about,
-      social: personalInfo.social,
-      profileImage: personalInfo.profileImage
-    }
-  }
-});
-
-aboutSection.mount('#about');
-
-
-  // Header Vue Instance
-  const headerSection = Vue.createApp({
-    data() {
-      return {
-        name: personalInfo.name,
-        cvLink: personalInfo.social.cv,
-        githubLink: personalInfo.social.github
-      }
-    }
-  });
-
-  headerSection.mount('#header');
-  console.log('✅ Header Vue.js mounted with data from data.js');
-
-  // Projects Section
-  const projectSection = Vue.createApp({
-    data() {
-      return {
-        project_1: projects[0],
-        project_2: projects[1],
-        project_3: projects[2]
-      }
-    }
-  });
-  projectSection.mount('#projects');
-
-  // ============================================
-  // SKILLS SECTION VUE 
-  // ============================================
-  const skillsSection = Vue.createApp({
-    data() {
-      return {
-        skillCategories: skills // For fully dynamic
-      }
-    },
-    mounted() {
-      this.$nextTick(() => {
-        this.animateSkillBars();
-      });
-    },
-    methods: {
-      getCategoryTitle(categoryKey) {
-        const titles = {
-          'programmingLanguages': 'Programming Languages',
-          'frameworks': 'Frameworks',
-          'protocols': 'Communication Protocols',
-          'toolsChains': 'Tools Chains'
-        };
-        return titles[categoryKey] || categoryKey;
-      },
-      animateSkillBars() {
-        const skillBars = document.querySelectorAll('.skills-section .skill-bar__fill');
-        skillBars.forEach((bar, index) => {
-          setTimeout(() => {
-            bar.style.transition = 'width 1.5s ease-out';
-            // Width is already set by Vue binding
-          }, index * 50);
-        });
-      }
-    }
-  });
-  skillsSection.mount('#skills');
-
-  // ============================================
-  // BUTTON CLICK HANDLERS
-  // ============================================
-
-  document.addEventListener('DOMContentLoaded', function () {
-    console.log('🔘 Initializing button handlers...');
-
-    // ============================================
-    // PROJECT BUTTONS - Live Demo
-    // ============================================
-
-    // Get all Live Demo buttons in projects section
-    const projectButtons = document.querySelectorAll('.projects-section .btn--primary');
-
-    projectButtons.forEach((button, index) => {
-      button.addEventListener('click', function (e) {
-        e.preventDefault();
-        console.log(`Project button ${index + 1} clicked`);
-
-        // Map buttons to their respective demo links
-        if (index === 0) {
-          openVideo2(); // AutoCar
-        } else if (index === 1) {
-          openVideo1(); // Mery
-        } else if (index === 2) {
-          openVideo3(); // Alicona
-        }
-      });
-    });
-
-    // ============================================
-    // DOWNLOAD CV BUTTONS
-    // ============================================
-
-    // All Download CV buttons
-    const cvButtons = document.querySelectorAll('a[href*="drive.google.com"]');
-
-    cvButtons.forEach(button => {
-      button.addEventListener('click', function (e) {
-        console.log('Download CV clicked');
-        // Let the default link behavior work
-      });
-    });
-
-    // ============================================
-    // CONTACT BUTTON in About section
-    // ============================================
-
-    const contactButtons = document.querySelectorAll('a[href="#contact"]');
-
-    contactButtons.forEach(button => {
-      button.addEventListener('click', function (e) {
-        e.preventDefault();
-        console.log('Contact button clicked');
-
-        // Smooth scroll to contact section
-        const contactSection = document.querySelector('#contact');
-        if (contactSection) {
-          const headerHeight = document.querySelector('.header').offsetHeight;
-          const targetPosition = contactSection.offsetTop - headerHeight;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // ============================================
-    // GITHUB BUTTONS
-    // ============================================
-
-    const githubButtons = document.querySelectorAll('a[href*="github.com"]');
-
-    githubButtons.forEach(button => {
-      button.addEventListener('click', function (e) {
-        console.log('GitHub button clicked:', this.href);
-        // Let the default link behavior work
-      });
-    });
-
-    console.log('✅ Button handlers initialized');
-  });
-
-  // ============================================
-  // HELPER FUNCTIONS - Make sure these exist
-  // ============================================
-
-  function openVideo1() {
-    const videoPath = 'https://drive.google.com/file/d/1qJQlDMIGqlszMTsI5pQZZzSY0RS2r1aC/view?usp=sharing';
-    console.log('Opening Mery demo:', videoPath);
-    window.open(videoPath, '_blank', 'noopener,noreferrer');
-  }
-
-  function openVideo2() {
-    const videoPath = 'https://drive.google.com/file/d/1exKXQZmpVaDemvtBU8Hr1UKZM6jqm8GO/view?usp=drive_link';
-    console.log('Opening AutoCar demo:', videoPath);
-    window.open(videoPath, '_blank', 'noopener,noreferrer');
-  }
-
-  function openVideo3() {
-    const videoPath = 'https://docs.google.com/presentation/d/1PhgUvstQkO5BZnhnWVLVb8qSPsIRLMTb/edit?usp=drive_link&ouid=105801039597573388513&rtpof=true&sd=true';
-    console.log('Opening Alicona demo:', videoPath);
-    window.open(videoPath, '_blank', 'noopener,noreferrer');
-  }
-
-
-  // ============================================
   // CONTACT FORM
   // ============================================
 
@@ -459,9 +353,7 @@ aboutSection.mount('#about');
       return;
     }
 
-    const body = message;
-    const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
+    const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
     window.location.href = mailtoLink;
     userMessage.value = '';
   }
@@ -496,6 +388,7 @@ aboutSection.mount('#about');
       const target = document.querySelector(this.getAttribute('href'));
 
       if (target) {
+        const header = document.getElementById('header');
         const headerHeight = header.offsetHeight;
         const targetPosition = target.offsetTop - headerHeight;
 
@@ -507,42 +400,4 @@ aboutSection.mount('#about');
     });
   });
 
-  // ============================================
-  // PERFORMANCE OPTIMIZATION
-  // ============================================
-
-  // Lazy load images
-  if ('loading' in HTMLImageElement.prototype) {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
-      img.src = img.dataset.src;
-    });
-  } else {
-    // Fallback for browsers that don't support lazy loading
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-    document.body.appendChild(script);
-  }
-
-  // Add animation on scroll
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, observerOptions);
-
-
-
-}
-
-
-
-
+});
