@@ -15,7 +15,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
@@ -187,60 +188,28 @@
     </section>
 
     <!-- ================================================ PROJECTS SECTION ================================================== -->
-    <!-- ================================================ 
-     FIXED PROJECTS SECTION HTML
-     Replace your projects section with this
-     ================================================ -->
-
     <section class="section section--bg-white projects-section" id="projects">
         <div class="container">
             <h2 class="section__title">Projects</h2>
 
             <div class="projects-grid">
-                <!-- Project 1: AutoCar -->
-                <div class="card project-card">
-                    <img src="images/autonomous_car.png" alt="AutoCar - Autonomous vehicle project"
-                        class="project-card__image">
-                    <div class="project-card__content">
-                        <h3 class="project-card__title">{{project_1.name}}</h3>
-                        <p class="project-card__description">{{project_1.description}}</p>
-                        <div class="btn-group">
-                            <div class="btn btn--primary" onclick="openVideo2()">Live Demo</div>
-                            <a :href="project_1.github_link" target="_blank" rel="noopener noreferrer"
-                                class="btn btn--secondary">
-                                GitHub Repo
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <div class="card project-card" v-for="project in projects" :key="project.id">
+                    <img :src="project.image" :alt="project.name" class="project-card__image">
 
-                <!-- Project 2: Mery -->
-                <div class="card project-card">
-                    <img src="images/speech_response.png" alt="Mery - Voice response assistant"
-                        class="project-card__image">
                     <div class="project-card__content">
-                        <h3 class="project-card__title">{{project_2.name}}</h3>
-                        <p class="project-card__description">{{project_2.description}}</p>
-                        <div class="btn-group">
-                            <div class="btn btn--primary" onclick="openVideo1()">Live Demo</div>
-                            <a :href="project_2.github_link" target="_blank" rel="noopener noreferrer"
-                                class="btn btn--secondary">
-                                GitHub Repo
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                        <h3 class="project-card__title">{{ project.name }}</h3>
+                        <p class="project-card__description">
+                            {{ project.description }}
+                        </p>
 
-                <!-- Project 3: Alicona -->
-                <div class="card project-card">
-                    <img src="images/alicona.png" alt="Alicona - Surface roughness measurement"
-                        class="project-card__image">
-                    <div class="project-card__content">
-                        <h3 class="project-card__title">{{project_3.name}}</h3>
-                        <p class="project-card__description">{{project_3.description}}</p>
                         <div class="btn-group">
-                            <div class="btn btn--primary" onclick="openVideo3()">Live Demo</div>
-                            <a :href="project_3.github_link" target="_blank" rel="noopener noreferrer"
+                            <!-- Live Demo -->
+                            <button class="btn btn--primary" @click="openDemo(project.demoLink)">
+                                Live Demo
+                            </button>
+
+                            <!-- GitHub -->
+                            <a :href="project.github_link" target="_blank" rel="noopener noreferrer"
                                 class="btn btn--secondary">
                                 GitHub Repo
                             </a>
@@ -251,11 +220,9 @@
         </div>
     </section>
 
+
     <!-- ================================================ SKILLS SECTION ================================================== -->
-    <!-- ================================================ 
-     FULLY DYNAMIC SKILLS SECTION
-     Automatically displays ALL categories from data.js
-     ================================================ -->
+    <!-- ==============FULLY DYNAMIC SKILLS SECTION Automatically displays ALL categories from data.js============== -->
 
     <section class="section section--bg-gray skills-section" id="skills">
         <div class="container">

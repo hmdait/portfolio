@@ -3,21 +3,6 @@
 // ============================================
 
 // ============================================
-// GLOBAL FUNCTIONS (MUST BE AT TOP!)
-// ============================================
-function openVideo1() {
-  window.open('https://drive.google.com/file/d/1qJQlDMIGqlszMTsI5pQZZzSY0RS2r1aC/view?usp=sharing', '_blank');
-}
-
-function openVideo2() {
-  window.open('https://drive.google.com/file/d/1exKXQZmpVaDemvtBU8Hr1UKZM6jqm8GO/view?usp=drive_link', '_blank');
-}
-
-function openVideo3() {
-  window.open('https://docs.google.com/presentation/d/1PhgUvstQkO5BZnhnWVLVb8qSPsIRLMTb/edit?usp=drive_link&ouid=105801039597573388513&rtpof=true&sd=true', '_blank');
-}
-
-// ============================================
 // MAIN CODE
 // ============================================
 document.addEventListener('DOMContentLoaded', function () {
@@ -65,17 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   aboutSection.mount('#about');
 
-  // Projects Section
-  const projectSection = Vue.createApp({
-    data() {
-      return {
-        project_1: projects[0],
-        project_2: projects[1],
-        project_3: projects[2]
-      }
-    }
-  });
-  projectSection.mount('#projects');
 
   // Skills Section
   const skillsSection = Vue.createApp({
@@ -312,6 +286,26 @@ document.addEventListener('DOMContentLoaded', function () {
       closeExperienceModal();
     }
   });
+
+
+  // ============================================
+  // Projects section
+  // ============================================
+  const projectSection = Vue.createApp({
+  data() {
+    return {
+      projects
+    }
+  },
+  methods: {
+    openDemo(link) {
+      window.open(link, '_blank')
+    }
+  }
+})
+
+projectSection.mount('#projects')
+
 
   // ============================================
   // CERTIFICATIONS SWIPER

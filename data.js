@@ -124,7 +124,7 @@ const projects = [
     description: "An autonomous car based on a Raspberry PI for processing data received by a camera and ultrasonic sensors",
     image: 'images/autonomous_car.png',
     demoLink: 'https://drive.google.com/file/d/1exKXQZmpVaDemvtBU8Hr1UKZM6jqm8GO/view?usp=drive_link',
-    github_link: 'https://github.com/hmdait/Autonomous_Car.git' // Vue.js uses this
+    github_link: 'https://github.com/hmdait/Autonomous_Car.git' 
   },
   {
     id: 2,
@@ -132,7 +132,7 @@ const projects = [
     description: "Voice response Assistance can hear us and translate audio messages into text as well as read text",
     image: 'images/speech_response.png',
     demoLink: 'https://drive.google.com/file/d/1qJQlDMIGqlszMTsI5pQZZzSY0RS2r1aC/view?usp=sharing',
-    github_link: 'https://github.com/hmdait/Assistant_Response' // Vue.js uses this
+    github_link: 'https://github.com/hmdait/Assistant_Response' 
   },
   {
     id: 3,
@@ -140,7 +140,23 @@ const projects = [
     description: "Measure the surface roughness of a part produced by additive manufacturing (SLS), in accordance with the ISO 25178.",
     image: 'images/alicona.png',
     demoLink: 'https://docs.google.com/presentation/d/1PhgUvstQkO5BZnhnWVLVb8qSPsIRLMTb/edit?usp=drive_link&ouid=105801039597573388513&rtpof=true&sd=true',
-    github_link: 'https://github.com/hmdait/confocal_measurement' // Vue.js uses this
+    github_link: 'https://github.com/hmdait/confocal_measurement' 
+  },
+  {
+    id: 4,
+    name: 'Humoraq',
+    description: "a modern, multilingual joke-sharing web application built with VueJs3. Its goal is simple: make people laugh across cultures and languages",
+    image: 'images/humoraq.png',
+    demoLink: 'https://humoraq.com',
+    github_link: 'https://github.com/hmdait/humoraq' 
+  },
+  {
+    id: 5,
+    name: 'porfolio',
+    description: "My personal portfolio showcasing my skills and projects, fully responsive, and designed to highlight my work in a modern and interactive way.",
+    image: 'images/porfolio.png',
+    demoLink: 'https://hmdait.github.io/portfolio/',
+    github_link: 'https://github.com/hmdait/portfolio' 
   }
 ];
 
@@ -161,7 +177,7 @@ const skills = {
   frameworks: [
     { name: 'Robot Framework', level: 'Advanced', percentage: 70 },
     { name: 'Selenium', level: 'Beginner', percentage: 30 },
-    { name: 'VueJs', level: 'Beginner', percentage: 30 },
+    { name: 'VueJs', level: 'Beginner', percentage: 40 },
     { name: 'Flask', level: 'Beginner', percentage: 30 }
   ],
   
