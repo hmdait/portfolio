@@ -12,7 +12,7 @@ const personalInfo = {
   email: "hmdaitbjj@gmail.com",
   location: "Nice, France",
   
-  about: `Systems Integration Engineer, certified ISTQB® – Certified Tester, Foundation Level (Syllabus v4.0), with solid expertise in software testing and validation processes aligned with international standards. My experience covers test planning and execution, test automation, defect analysis, and validation cycle optimization to ensure software quality and reliability. With a strong background in development and integration, I apply quality-driven approaches such as TDD and CI/CD, leveraging modern tools to enhance system performance and robustness. Passionate about innovation, I'm committed to delivering reliable, efficient, and compliant solutions that meet the highest quality standards.`,
+  about: `Systems Integration Engineer with strong expertise in software testing and validation processes aligned with international standards. Certified ISTQB Certified Tester Foundation Level (CTFL) v4.0 and ISTQB Certified Tester Advanced Level Test Automation Engineer (CTAL‑TAE) v2.0. My experience covers test planning and execution, test automation architecture and implementation, defect analysis, and validation cycle optimization to ensure software quality, reliability, and maintainability. With a strong background in development and systems integration, I apply quality-driven approaches such as TDD and CI/CD, leveraging modern tools and automation frameworks to improve system performance and robustness. Passionate about innovation and continuous improvement, I’m committed to delivering reliable, efficient, and compliant solutions that meet the highest quality standards.`,
   
   social: {
     github: 'https://github.com/hmdait',
@@ -212,7 +212,8 @@ const skills = {
 // CERTIFICATIONS DATA
 // ============================================
 const certifications = [
-  { image: 'images/GASQ-ISTQB.png', title: 'GASQ ISTQB Certification' },
+  { image: 'images/GASQ-CTAL-TAE.png', title: 'GASQ ISTQB Certification Test Automation Engineering' },
+  { image: 'images/GASQ-Foundation-Level.png', title: 'GASQ ISTQB Foundation Level' },
   { image: 'images/Udemy-ISTQB.jpg', title: 'Udemy ISTQB Certification' },
   { image: 'images/Embedded_Software_and_Hardware_rchitecture.jpeg', title: 'Embedded Software and Hardware Architecture' },
   { image: 'images/c_basics.jpeg', title: 'C Programming Basics' },
