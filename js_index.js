@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log('✅ Portfolio data loaded');
 
   // Get data from global scope
-  const { personalInfo, experiences, projects, skills } = window.portfolioData;
+  const { personalInfo, experiences, projects, skills, certifications } = window.portfolioData;
 
   // ============================================
   // VUE.JS INSTANCES - MOUNT FIRST!
@@ -310,6 +310,12 @@ projectSection.mount('#projects')
   // ============================================
   // CERTIFICATIONS SWIPER
   // ============================================
+
+  Vue.createApp({
+    data() {
+      return { certifications };
+    }
+  }).mount('#certifications-swiper');
 
   const certificationsSwiper = new Swiper('.myCertificationsSwiper', {
     loop: true,

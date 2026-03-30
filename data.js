@@ -35,12 +35,14 @@ const experiences = [
     endDate: "Present",
     summary: "Automation of the verification process using Python and Batch scripts, ensuring systematic checks after each bench usage....",
     details: [
-      "Automation of the verification process using Python and Batch scripts, ensuring systematic checks after each bench usage",
-      "Automatic generation of detailed test reports including the functional status of each network and bench utilization KPIs via CI.",
-      "Development of CAPL scripts in Canoe to monitor networks communication on benches.",
-      "Active member of a Scrum team, contributing to agile ceremonies and collaborative development.",
-      "Supporting the improvement of reliability and efficiency in the validation process within the new SDV architecture."
-      
+      "- Automation of the bench verification process using Python and Batch scripts, ensuring systematic checks and generating validation metrics after each bench usage.",
+      "- Development of CAPL scripts in Vector CANoe to monitor and analyze network communication (CAN, Ethernet, XCP, UDS) across test benches.",
+      "- Automatic generation of detailed test reports (functional network status, bench KPIs) integrated into GitLab CI pipelines.",
+      "- Flashing of ECUs using Lauterbach TRACE32 and Renesas flashing tools, including memory programming and post-flash validation.",
+      "- Debugging, configuration, and system inspection of ECUs through ADB (Android Debug Bridge): shell access, log extraction, service monitoring, and internal feature configuration.",
+      "- Implementation of offboarding processes, including building an MQTT bridge between ECUs and backend servers to support real‐time data exchange and event handling.",
+      "- Execution of validation campaigns on HIL, and vehicle platforms, using CANoe, CANalyzer, and vFlash for software validation.",
+      "- Contributing to the improvement of reliability, traceability, and efficiency within the validation process of the new Software‐Defined Vehicle (SDV) architecture."
     ]
   },
   {company: "AMPERE",
@@ -149,9 +151,16 @@ const projects = [
     image: 'images/humoraq.png',
     demoLink: 'https://humoraq.com',
     github_link: 'https://github.com/hmdait/humoraq' 
+  },{
+    id: 5,
+    name: 'Scanqur',
+    description: "A no-code digital solution enabling restaurants, shops, and service businesses to instantly create online menus/product lists accessible via QR codes with no installation, no technical knowledge required.",
+    image: 'images/scanqur.webp',
+    demoLink: 'https://scanqur.com',
+    github_link: 'https://github.com/hmdait/scanqur' 
   },
   {
-    id: 5,
+    id: 6,
     name: 'porfolio',
     description: "My personal portfolio showcasing my skills and projects, fully responsive, and designed to highlight my work in a modern and interactive way.",
     image: 'images/porfolio.png',
@@ -168,7 +177,7 @@ const skills = {
     { name: 'Python', level: 'Advanced', percentage: 80 },
     { name: 'C/C++', level: 'Advanced', percentage: 80 },
     { name: 'CAPL', level: 'Advanced', percentage: 80 },
-    { name: 'Batsh', level: 'Advanced', percentage: 80 },
+    { name: 'Bash', level: 'Advanced', percentage: 80 },
     { name: 'JavaScript', level: 'Intermediate', percentage: 60 },
     { name: 'HTML', level: 'Intermediate', percentage: 60 },
     { name: 'CSS', level: 'Intermediate', percentage: 60 }
@@ -177,7 +186,7 @@ const skills = {
   frameworks: [
     { name: 'Robot Framework', level: 'Advanced', percentage: 70 },
     { name: 'Selenium', level: 'Beginner', percentage: 30 },
-    { name: 'VueJs', level: 'Beginner', percentage: 40 },
+    { name: 'Vue.Js', level: 'Beginner', percentage: 40 },
     { name: 'Flask', level: 'Beginner', percentage: 30 }
   ],
   
@@ -212,7 +221,7 @@ const skills = {
 // CERTIFICATIONS DATA
 // ============================================
 const certifications = [
-  { image: 'images/GASQ-CTAL-TAE.png', title: 'GASQ ISTQB Certification Test Automation Engineering' },
+  { image: 'images/ISTQB-CTAL-TAE.png', title: 'GASQ ISTQB Certification Test Automation Engineering' },
   { image: 'images/GASQ-Foundation-Level.png', title: 'GASQ ISTQB Foundation Level' },
   { image: 'images/Udemy-ISTQB.jpg', title: 'Udemy ISTQB Certification' },
   { image: 'images/Embedded_Software_and_Hardware_rchitecture.jpeg', title: 'Embedded Software and Hardware Architecture' },

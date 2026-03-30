@@ -251,33 +251,10 @@
         <div class="container">
             <h2 class="section__title">Training Certificates</h2>
 
-            <div class="swiper myCertificationsSwiper">
+            <div class="swiper myCertificationsSwiper" id="certifications-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="images/ISTQB-CTAL-TAE.png" alt="GASQ ISTQB Certification Test Automation Engineering">
-                    </div>
-
-                    <div class="swiper-slide">
-                        <img src="images/GASQ-Foundation-Level.png" alt="GASQ ISTQB Certification">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/Udemy-ISTQB.jpg" alt="Udemy ISTQB Certification">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/Embedded_Software_and_Hardware_rchitecture.jpeg"
-                            alt="Embedded Software and Hardware Architecture">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/c_basics.jpeg" alt="C Programming Basics">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/scrum.png" alt="Scrum Certification">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/web_design.png" alt="Web Design Certification">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/LeaderShip.png" alt="Leadership Certification">
+                    <div class="swiper-slide" v-for="cert in certifications" :key="cert.title">
+                        <img :src="cert.image" :alt="cert.title">
                     </div>
                 </div>
 
